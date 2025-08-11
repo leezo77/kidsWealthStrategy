@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Student Wealth Builder | Expense Calculator & Investment Strategy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Australian Student Wealth Builder</h1>
+            <p>Calculate your living expenses and build your investment strategy</p>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tab-nav">
+        <div class="container">
+            <div class="tab-buttons">
+                
+                <button class="tab-btn" data-tab="wealth">
+                    <span class="tab-icon">💰</span>
+                    <span>Wealth Strategy</span>
+                </button>
+                <button class="tab-btn" data-tab="allocation">
+                    <span class="tab-icon">⚙️</span>
+                    <span>Allocation Settings</span>
+                </button>
+                <button class="tab-btn" data-tab="info">
+                    <span class="tab-icon">ℹ️</span>
+                    <span>Info</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tab 1: Expense Calculator -->
+    <section id="expenses-tab" class="tab-content">
+        <div class="container">
+            <div class="tab-header">
+                <h2>Calculate Your Everyday Expenses</h2>
+                <p>Determine realistic living costs based on Australian student expenses</p>
+            </div>
+
+            <!-- City Selection -->
+            <div class="city-selection">
+                <h3>Select Your City</h3>
+                <div class="city-cards">
+                    <label class="city-card">
+                        <input type="radio" name="city" value="Sydney">
+                        <div class="city-info">
+                            <div class="city-name">Sydney</div>
+                            <div class="city-cost">Most expensive</div>
+                        </div>
+                    </label>
+                    <label class="city-card">
+                        <input type="radio" name="city" value="Melbourne">
+                        <div class="city-info">
+                            <div class="city-name">Melbourne</div>
+                            <div class="city-cost">High costs</div>
+                        </div>
+                    </label>
+                    <label class="city-card">
+                        <input type="radio" name="city" value="Brisbane" checked>
+                        <div class="city-info">
+                            <div class="city-name">Brisbane</div>
+                            <div class="city-cost">Average costs</div>
+                        </div>
+                    </label>
+                    <label class="city-card">
+                        <input type="radio" name="city" value="Perth">
+                        <div class="city-info">
+                            <div class="city-name">Perth</div>
+                            <div class="city-cost">Moderate costs</div>
+                        </div>
+                    </label>
+                    <label class="city-card">
+                        <input type="radio" name="city" value="Adelaide">
+                        <div class="city-info">
+                            <div class="city-name">Adelaide</div>
+                            <div class="city-cost">Affordable</div>
+                        </div>
+                    </label>
+                    <label class="city-card">
+                        <input type="radio" name="city" value="Regional Areas">
+                        <div class="city-info">
+                            <div class="city-name">Regional</div>
+                            <div class="city-cost">Cheapest</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Main Expense Sliders -->
+            <div class="main-expenses">
+                <h3>Main Living Expenses</h3>
+                
+                <div class="expense-slider-group">
+                    <div class="slider-header">
+                        <h4>🏠 Accommodation</h4>
+                        <span class="slider-value" id="accommodationValue">$350/week</span>
+                    </div>
+                    <input type="range" id="accommodationSlider" class="main-slider" min="0" max="800" value="350">
+                    <div class="slider-range">$0 - $800/week</div>
+                </div>
+
+                <div class="expense-slider-group">
+                    <div class="slider-header">
+                        <h4>🍎 Food</h4>
+                        <span class="slider-value" id="foodValue">$95/week</span>
+                    </div>
+                    <input type="range" id="foodSlider" class="main-slider" min="0" max="300" value="95">
+                    <div class="slider-range">$0 - $300/week</div>
+                </div>
+
+                <div class="expense-slider-group">
+                    <div class="slider-header">
+                        <h4>🚌 Transport</h4>
+                        <span class="slider-value" id="transportValue">$32/week</span>
+                    </div>
+                    <input type="range" id="transportSlider" class="main-slider" min="0" max="200" value="32">
+                    <div class="slider-range">$0 - $200/week</div>
+                </div>
+            </div>
+
+            <!-- Other Expenses -->
+            <div class="other-expenses">
+                <h3>Other Expenses (Optional)</h3>
+                <div class="preset-expenses">
+                    <!-- Preset expenses will be generated by JavaScript -->
+                </div>
+                
+                <!-- Custom Expenses -->
+                <div class="custom-expenses">
+                    <h4>Custom Expenses</h4>
+                    <div class="custom-expense-list"></div>
+                    <button class="btn btn--outline" id="addCustomExpense">+ Add Custom Expense</button>
+                </div>
+            </div>
+
+            <!-- Expense Summary -->
+            <div class="expense-summary">
+                <div class="summary-card">
+                    <h3>Your Living Expenses</h3>
+                    <div class="summary-breakdown">
+                        <div class="summary-row">
+                            <span>Weekly Total:</span>
+                            <span class="amount" id="weeklyTotal">$477</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Monthly Total:</span>
+                            <span class="amount" id="monthlyTotal">$2,067</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Annual Total:</span>
+                            <span class="amount" id="annualTotal">$24,804</span>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--lg use-amount-btn" onclick="useThisAmount()">
+                        Use This Amount for Wealth Strategy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab 2: Wealth Strategy -->
+    <section id="wealth-tab" class="tab-content active">
+        <div class="container">
+            <div class="tab-header">
+                <h2>Your Wealth Building Strategy</h2>
+                <p>Smart allocation based on your income and fixed expenses</p>
+            </div>
+
+            <!-- Income Input -->
+            <div class="income-section">
+                <h3>Enter Your Income</h3>
+                <div class="income-input-group">
+                    <div class="income-input">
+                        <label for="incomeAmount">Income Amount ($)</label>
+                        <input type="number" id="incomeAmount" class="form-control" placeholder="2500" min="0" step="10">
+                    </div>
+                    <div class="income-frequency">
+                        <label for="incomeFreq">Frequency</label>
+                        <select id="incomeFreq" class="form-control">
+                            <option value="weekly">Weekly</option>
+                            <option value="fortnightly">Fortnightly</option>
+                            <option value="monthly" selected>Monthly</option>
+                            <option value="annual">Annual</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="income-display">
+                    <div class="income-breakdown">
+                        <div class="income-item">
+                            <span>Monthly Income:</span>
+                            <span id="monthlyIncome">$0</span>
+                        </div>
+                        <div class="income-item">
+                            <span>Annual Income:</span>
+                            <span id="annualIncome">$0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="expense-cta card" style="margin-top: 16px;">
+                    <div class="card__body" style="text-align:center;">
+                        <button class="btn btn--primary btn--lg" onclick="switchToTab('expenses')">
+                            <span class="tab-icon">🏠</span>
+                            <span>Estimate or Adjust Expenses</span>
+                        </button>
+                        <p style="margin-top: 8px; color: var(--color-text-secondary); font-size: 12px;">Set weekly costs, then tap “Use This Amount” to return to Emergency Fund.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Starting Emergency Fund -->
+            <div class="emergency-fund-section" id="emergency-fund">
+                <h3>Emergency Fund Status</h3>
+                <div class="emergency-fund-input">
+                    <label for="startingEmergencyFund">How much have you already saved for emergencies?</label>
+                    <input type="number" id="startingEmergencyFund" class="form-control" placeholder="0" min="0" step="100">
+                </div>
+                <div class="emergency-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="emergencyProgress"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="emergencyProgressText">0% of recommended emergency fund</span>
+                        <span id="emergencyTarget">Target: $0 (6 months of expenses)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save for Something Big -->
+            <div class="big-goal-section">
+                <div class="big-goal-header">
+                    <h3>Save for Something Big</h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="bigGoalToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="big-goal-content" id="bigGoalContent">
+                    <div class="goal-inputs">
+                        <div class="goal-input">
+                            <label for="goalName">Goal Name</label>
+                            <input type="text" id="goalName" class="form-control" placeholder="Europe Trip">
+                        </div>
+                        <div class="goal-input">
+                            <label for="goalAmount">Target Amount ($)</label>
+                            <input type="number" id="goalAmount" class="form-control" placeholder="5000" min="0" step="100">
+                        </div>
+                        <div class="goal-input">
+                            <label for="goalDate">Target Date</label>
+                            <input type="date" id="goalDate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="goal-calculation" id="goalCalculation">
+                        <p>You need to save <strong id="monthlyGoalAmount">$0</strong> per month to reach your goal.</p>
+                        <div class="goal-feasibility" id="goalFeasibility"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fixed Expenses Display -->
+            <div class="fixed-expenses-section">
+                <h3>Your Fixed Living Expenses</h3>
+                <div class="fixed-expenses-card">
+                    <div class="expense-amount">
+                        <span class="label">Monthly Fixed Expenses:</span>
+                        <span class="value" id="fixedExpensesDisplay">$0</span>
+                    </div>
+                    <button class="btn btn--outline btn--sm" onclick="switchToTab('expenses')">
+                        Adjust Expenses
+                    </button>
+                </div>
+            </div>
+
+            <!-- Allocation Strategy -->
+            <div class="allocation-strategy">
+                <h3>Your Money Allocation</h3>
+                <div class="strategy-layout">
+                    <div class="chart-section">
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <canvas id="wealthChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="allocation-breakdown">
+                        <div class="allocation-item">
+                            <div class="allocation-header">
+                                <div class="allocation-color" style="background: #B4413C;"></div>
+                                <h4>Fixed Expenses</h4>
+                            </div>
+                            <div class="allocation-details">
+                                <div class="amount" id="fixedAmount">$0</div>
+                                <div class="percentage" id="fixedPercent">0%</div>
+                                <p>Your calculated living costs</p>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-header">
+                                <div class="allocation-color" style="background: #1FB8CD;"></div>
+                                <h4>Emergency Fund</h4>
+                            </div>
+                            <div class="allocation-details">
+                                <div class="amount" id="emergencyAmount">$0</div>
+                                <div class="percentage" id="emergencyPercent">30%</div>
+                                <p>30% of remaining income for security</p>
+                            </div>
+                        </div>
+                        <div class="allocation-item" id="bigGoalAllocation" style="display: none;">
+                            <div class="allocation-header">
+                                <div class="allocation-color" style="background: #FFC185;"></div>
+                                <h4>Big Goal</h4>
+                            </div>
+                            <div class="allocation-details">
+                                <div class="amount" id="bigGoalAmount">$0</div>
+                                <div class="percentage" id="bigGoalPercent">0%</div>
+                                <p>Saving for your big goal</p>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-header">
+                                <div class="allocation-color" style="background: #5D878F;"></div>
+                                <h4>Core Investments</h4>
+                            </div>
+                            <div class="allocation-details">
+                                <div class="amount" id="coreAmount">$0</div>
+                                <div class="percentage" id="corePercent">10%</div>
+                                <p>10% to VAS (50%) + VGS (50%)</p>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-header">
+                                <div class="allocation-color" style="background: #ECEBD5;"></div>
+                                <h4>Satellite Investment</h4>
+                            </div>
+                            <div class="allocation-details">
+                                <div class="amount" id="satelliteAmount">$0</div>
+                                <div class="percentage" id="satellitePercent">3%</div>
+                                <p>3% to Bitcoin ETF for growth</p>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-header">
+                                <div class="allocation-color" style="background: #DB4545;"></div>
+                                <h4>Flexible Spending</h4>
+                            </div>
+                            <div class="allocation-details">
+                                <div class="amount" id="flexibleAmount">$0</div>
+                                <div class="percentage" id="flexiblePercent">57%</div>
+                                <p>Remaining for lifestyle and buffer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apps & Tools -->
+            <div class="apps-section">
+                <h3>Recommended Apps & Tools</h3>
+                <div class="apps-grid">
+                    <div class="app-card">
+                        <div class="app-priority">1</div>
+                        <h4>Up Bank</h4>
+                        <p>Primary transaction account & automated budgeting</p>
+                        <ul class="app-features">
+                            <li>Fee-free international transactions</li>
+                            <li>Automated Pay Splitting</li>
+                            <li>Real-time notifications</li>
+                        </ul>
+                        <div class="app-cost">Free</div>
+                        <a href="https://up.com.au/" target="_blank" class="btn btn--primary btn--sm">Get Started</a>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-priority">2</div>
+                        <h4>UBank Save</h4>
+                        <p>High-interest emergency fund storage</p>
+                        <ul class="app-features">
+                            <li>5.00% for 4 months, then 4.60% p.a.</li>
+                            <li>No penalties</li>
+                            <li>$500+ monthly deposit required</li>
+                        </ul>
+                        <div class="app-cost">Free</div>
+                        <a href="https://www.ubank.com.au/banking/savings-account" target="_blank" class="btn btn--primary btn--sm">Get Started</a>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-priority">3</div>
+                        <h4>Betashares Direct</h4>
+                        <p>Zero-fee ETF investing platform</p>
+                        <ul class="app-features">
+                            <li>Free brokerage on all ASX ETFs</li>
+                            <li>Fractional investing</li>
+                            <li>Auto-invest feature</li>
+                        </ul>
+                        <div class="app-cost">Free brokerage</div>
+                        <a href="https://www.betashares.com.au/direct/" target="_blank" class="btn btn--primary btn--sm">Get Started</a>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-priority">4</div>
+                        <h4>Frollo</h4>
+                        <p>Budget tracking & goal monitoring</p>
+                        <ul class="app-features">
+                            <li>Open banking integration</li>
+                            <li>Goal tracking</li>
+                            <li>Spending alerts</li>
+                        </ul>
+                        <div class="app-cost">Free</div>
+                        <a href="https://frollo.com.au/" target="_blank" class="btn btn--primary btn--sm">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expected Outcomes -->
+            <div class="outcomes-section">
+                <h3>Expected Outcomes</h3>
+                <div class="outcomes-grid">
+                    <div class="outcome-card">
+                        <h4>Year 1</h4>
+                        <div class="outcome-amount" id="year1Total">$0</div>
+                        <ul id="year1Breakdown">
+                            <li>Emergency fund: $0</li>
+                            <li>Investments: $0</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>Year 3</h4>
+                        <div class="outcome-amount" id="year3Total">$0</div>
+                        <ul id="year3Breakdown">
+                            <li>Emergency fund: $0</li>
+                            <li>Investment portfolio: $0</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Definitions -->
+            <div class="definitions-section">
+                <h3>Key Financial Definitions</h3>
+                <div class="definitions-grid">
+                    <!-- All 12 definitions will be added here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab 3: Allocation Settings -->
+    <section id="allocation-tab" class="tab-content">
+        <div class="container">
+            <div class="tab-header">
+                <h2>Customize Your Allocation Strategy</h2>
+                <p>Adjust the default percentages for your wealth building strategy</p>
+            </div>
+
+            <!-- Allocation Settings -->
+            <div class="allocation-settings">
+                <div class="settings-intro">
+                    <h3>Allocation Percentages</h3>
+                    <p>These percentages determine how your remaining income (after fixed expenses) is allocated. Adjust them to match your financial goals and risk tolerance.</p>
+                </div>
+
+                <div class="allocation-sliders">
+                    <div class="allocation-slider-group">
+                        <div class="slider-header">
+                            <h4>🛡️ Emergency Fund</h4>
+                            <span class="slider-value" id="emergencyPercentValue">30%</span>
+                        </div>
+                        <input type="range" id="emergencyPercentSlider" class="allocation-slider" min="0" max="50" value="30">
+                        <div class="slider-range">0% - 50%</div>
+                        <p class="slider-description">Percentage of remaining income allocated to emergency fund (until fully funded)</p>
+                    </div>
+
+                    <div class="allocation-slider-group">
+                        <div class="slider-header">
+                            <h4>📈 Core Investments</h4>
+                            <span class="slider-value" id="corePercentValue">10%</span>
+                        </div>
+                        <input type="range" id="corePercentSlider" class="allocation-slider" min="0" max="30" value="10">
+                        <div class="slider-range">0% - 30%</div>
+                        <p class="slider-description">Percentage allocated to VAS (50%) + VGS (50%) ETFs</p>
+                    </div>
+
+                    <div class="allocation-slider-group">
+                        <div class="slider-header">
+                            <h4>🚀 Satellite Investment</h4>
+                            <span class="slider-value" id="satellitePercentValue">3%</span>
+                        </div>
+                        <input type="range" id="satellitePercentSlider" class="allocation-slider" min="0" max="15" value="3">
+                        <div class="slider-range">0% - 15%</div>
+                        <p class="slider-description">Percentage allocated to Bitcoin ETF for growth potential</p>
+                    </div>
+
+                    <div class="allocation-slider-group">
+                        <div class="slider-header">
+                            <h4>🎯 Big Goal Savings</h4>
+                            <span class="slider-value" id="bigGoalPercentValue">0%</span>
+                        </div>
+                        <input type="range" id="bigGoalPercentSlider" class="allocation-slider" min="0" max="60" value="0">
+                        <div class="slider-range">0% - 60%</div>
+                        <p class="slider-description">Percentage allocated to big goal savings (when enabled)</p>
+                    </div>
+                </div>
+
+                <div class="allocation-summary">
+                    <div class="summary-card">
+                        <h3>Allocation Summary</h3>
+                        <div class="summary-breakdown">
+                            <div class="summary-row">
+                                <span>Emergency Fund:</span>
+                                <span class="amount" id="summaryEmergency">30%</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Core Investments:</span>
+                                <span class="amount" id="summaryCore">10%</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Satellite Investment:</span>
+                                <span class="amount" id="summarySatellite">3%</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Big Goal Savings:</span>
+                                <span class="amount" id="summaryBigGoal">0%</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total Allocated:</span>
+                                <span class="amount" id="summaryTotal">43%</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Remaining (Flexible):</span>
+                                <span class="amount" id="summaryFlexible">57%</span>
+                            </div>
+                        </div>
+                        <div class="summary-note">
+                            <p><strong>Note:</strong> These percentages apply to your remaining income after fixed expenses. The actual amounts will be calculated in the Wealth Strategy tab.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab 4: Info (Infographic) -->
+    <section id="info-tab" class="tab-content">
+        <div class="container">
+            <div class="tab-header">
+                <h2>Strategy Info</h2>
+                <p>Bucket your money, secure your base, then grow with simple, smart defaults</p>
+            </div>
+
+            <!-- Buckets Overview -->
+            <div class="info-hero">
+                <h3>The Core Idea — Buckets for Your Money</h3>
+                <p>Divide income into clear buckets with a job for every dollar.</p>
+            </div>
+
+            <div class="bucket-grid">
+                <div class="bucket-card">
+                    <div class="bucket-icon">🏠</div>
+                    <h4>Fixed Expenses</h4>
+                    <p>Rent, food, transport — your everyday living costs.</p>
+                </div>
+                <div class="bucket-card">
+                    <div class="bucket-icon">🛟</div>
+                    <h4>Emergency Fund</h4>
+                    <p>Build 6 months of expenses to avoid debt.</p>
+                </div>
+                <div class="bucket-card">
+                    <div class="bucket-icon">🎯</div>
+                    <h4>Big Goal (optional)</h4>
+                    <p>Save for a laptop, trip, car — you choose.</p>
+                </div>
+                <div class="bucket-card">
+                    <div class="bucket-icon">📈</div>
+                    <h4>Core Investments</h4>
+                    <p>Low-cost index funds (ETFs like VAS/VGS) for long-term growth.</p>
+                </div>
+                <div class="bucket-card">
+                    <div class="bucket-icon">🚀</div>
+                    <h4>Satellite Investments</h4>
+                    <p>Small slice for higher-risk ideas like a Bitcoin ETF.</p>
+                </div>
+                <div class="bucket-card">
+                    <div class="bucket-icon">🎉</div>
+                    <h4>Flexible Spending</h4>
+                    <p>Fun and lifestyle — enjoy now without guilt.</p>
+                </div>
+            </div>
+
+            <!-- Default Allocation (of remaining income) -->
+            <div class="allocation-visual">
+                <h3>Default Allocation (of remaining income)</h3>
+                <div class="allocation-bar" aria-label="Default allocation visual">
+                    <span class="seg seg--emergency" style="width:30%">Emergency 30%</span>
+                    <span class="seg seg--core" style="width:10%">Core 10%</span>
+                    <span class="seg seg--satellite" style="width:3%">Satellite 3%</span>
+                    <span class="seg seg--flexible" style="width:57%">Flexible 57%</span>
+                </div>
+                <p class="allocation-note">Emergency can be 20–30% until you reach 6 months of expenses.</p>
+            </div>
+
+            <!-- Why this works -->
+            <div class="why-grid">
+                <div class="why-card">
+                    <h4>Balance</h4>
+                    <p>Covers needs, wants, and future goals.</p>
+                </div>
+                <div class="why-card">
+                    <h4>Safety Net</h4>
+                    <p>Emergency fund protects you from debt.</p>
+                </div>
+                <div class="why-card">
+                    <h4>Growth</h4>
+                    <p>Core index funds build wealth over time.</p>
+                </div>
+                <div class="why-card">
+                    <h4>Opportunity</h4>
+                    <p>Small satellite slice lets you take calculated risks.</p>
+                </div>
+                <div class="why-card">
+                    <h4>Freedom</h4>
+                    <p>Flexible spending keeps it sustainable.</p>
+                </div>
+            </div>
+
+            <!-- Simple Flow Diagram -->
+            <div class="diagram">
+                <div class="diagram-step">Income</div>
+                <div class="diagram-arrow">↓</div>
+                <div class="diagram-step">Fixed Expenses</div>
+                <div class="diagram-arrow">↓</div>
+                <div class="diagram-row">
+                    <div class="diagram-step">Emergency Fund</div>
+                    <div class="diagram-step">Big Goal (optional)</div>
+                </div>
+                <div class="diagram-arrow">↓</div>
+                <div class="diagram-row">
+                    <div class="diagram-step">Core Investments</div>
+                    <div class="diagram-step">Satellite Investments</div>
+                </div>
+                <div class="diagram-arrow">↓</div>
+                <div class="diagram-step">Flexible Spending</div>
+            </div>
+
+            <!-- Key Terms -->
+            <div class="terms-section">
+                <h3>Key Terms</h3>
+                <div class="terms-grid">
+                    <div class="term-card">
+                        <h4>ETF</h4>
+                        <p>Exchange Traded Fund — spreads your investment across many companies.</p>
+                    </div>
+                    <div class="term-card">
+                        <h4>Index Fund</h4>
+                        <p>Tracks a market index (e.g., ASX 200) with low costs.</p>
+                    </div>
+                    <div class="term-card">
+                        <h4>Emergency Fund</h4>
+                        <p>Money set aside to cover living costs if income stops.</p>
+                    </div>
+                    <div class="term-card">
+                        <h4>Core vs Satellite</h4>
+                        <p>Stable core + small high-risk satellite for balanced growth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-center">
+                <button class="btn btn--primary btn--lg" onclick="switchToTab('wealth')">Try It With Your Numbers</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Australian Student Wealth Builder. Educational purposes only - not financial advice.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
