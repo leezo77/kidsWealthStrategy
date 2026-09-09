@@ -3,265 +3,1102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Investing Guide | Australian Student Wealth Builder</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Start Investing: Australian Guide for Young Adults | Betashares Direct</title>
+    <style>
+        :root {
+            --color-primary: #21808D;
+            --color-primary-hover: #1D7480;
+            --color-primary-light: #E6F4F6;
+            --color-secondary: #5D878F;
+            --color-accent: #1FB8CD;
+            --color-warning: #FFC185;
+            --color-error: #DB4545;
+            --color-success: #21808D;
+            --color-bg: #FCFCF9;
+            --color-surface: #FFFFD;
+            --color-text: #134252;
+            --color-text-secondary: #626C71;
+            --color-border: rgba(94, 82, 64, 0.2);
+            --spacing-xs: 8px;
+            --spacing-sm: 12px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #1F2121;
+                --color-surface: #262828;
+                --color-text: #F5F5F5;
+                --color-text-secondary: rgba(167, 169, 169, 0.7);
+                --color-primary: #32B8C6;
+                --color-primary-hover: #2DA6B2;
+                --color-primary-light: rgba(50, 184, 198, 0.15);
+                --color-border: rgba(119, 124, 124, 0.3);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            font-size: 16px;
+        }
+
+        .disclaimer-banner {
+            background: linear-gradient(135deg, #DB4545 0%, #B4413C 100%);
+            color: white;
+            padding: var(--spacing-md) var(--spacing-lg);
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .disclaimer-banner.visible {
+            transform: translateY(0);
+        }
+
+        .disclaimer-banner strong {
+            display: block;
+            font-size: 1.05em;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .disclaimer-banner p {
+            font-size: 0.9em;
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .disclaimer-close {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .disclaimer-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .disclaimer-trigger {
+            background: rgba(219, 69, 69, 0.1);
+            border: 1px solid rgba(219, 69, 69, 0.3);
+            color: #DB4545;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .disclaimer-trigger:hover {
+            background: rgba(219, 69, 69, 0.15);
+            border-color: rgba(219, 69, 69, 0.5);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .disclaimer-trigger {
+                background: rgba(255, 84, 89, 0.15);
+                border-color: rgba(255, 84, 89, 0.3);
+                color: #FF5459;
+            }
+            .disclaimer-trigger:hover {
+                background: rgba(255, 84, 89, 0.25);
+                border-color: rgba(255, 84, 89, 0.5);
+            }
+        }
+
+        .nav-menu {
+            background: var(--color-surface);
+            border-bottom: 2px solid var(--color-border);
+            padding: var(--spacing-md);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: var(--spacing-xl) var(--spacing-md);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero h1 {
+            font-size: 2.2em;
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-sm);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 700;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .accordion-item {
+            background: var(--color-surface);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .accordion-item.active {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .accordion-header {
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            user-select: none;
+        }
+
+        .accordion-header:hover {
+            background: var(--color-primary-light);
+        }
+
+        .accordion-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            font-weight: 600;
+            color: var(--color-text);
+            font-size: 1.15em;
+        }
+
+        .step-number {
+            background: var(--color-primary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .accordion-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+        }
+
+        .accordion-body {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .accordion-body h4 {
+            color: var(--color-text);
+            margin: var(--spacing-md) 0 var(--spacing-sm);
+        }
+
+        .accordion-body ul {
+            margin: var(--spacing-sm) 0;
+            padding-left: var(--spacing-lg);
+        }
+
+        .accordion-body li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Risk Profile Cards */
+        .risk-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .risk-card {
+            background: var(--color-surface);
+            border: 3px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .risk-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .risk-card.active {
+            border-color: var(--color-primary);
+            background: var(--color-primary-light);
+        }
+
+        .risk-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .risk-badge.conservative {
+            background: rgba(33, 128, 141, 0.15);
+            color: var(--color-primary);
+        }
+
+        .risk-badge.balanced {
+            background: rgba(93, 135, 143, 0.15);
+            color: var(--color-secondary);
+        }
+
+        .risk-badge.growth {
+            background: rgba(255, 193, 133, 0.3);
+            color: var(--color-warning);
+        }
+
+        .risk-card h3 {
+            font-size: 1.4em;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text);
+        }
+
+        .risk-card p {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-secondary);
+        }
+
+        .portfolio-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            margin-top: var(--spacing-md);
+        }
+
+        .risk-card.active .portfolio-details {
+            max-height: 3000px;
+        }
+
+        .allocation-grid {
+            background: var(--color-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .allocation-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .allocation-item:last-child {
+            border-bottom: none;
+        }
+
+        .ticker {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-family: monospace;
+        }
+
+        .percentage {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .buy-checklist {
+            background: rgba(31, 184, 205, 0.1);
+            border-left: 4px solid var(--color-accent);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        .buy-checklist h4 {
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .buy-checklist ol {
+            margin: var(--spacing-sm) 0;
+            padding-left: var(--spacing-lg);
+        }
+
+        .buy-checklist li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 133, 0.15);
+            border-left: 4px solid var(--color-warning);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        .info-box {
+            background: var(--color-primary-light);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--radius-sm);
+        }
+
+        .simple-section {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--color-primary);
+            color: white;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .footer {
+            background: var(--color-surface);
+            border-top: 2px solid var(--color-border);
+            padding: var(--spacing-xl) var(--spacing-md);
+            margin-top: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .footer-links {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm);
+            text-align: left;
+        }
+
+        .footer-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.6em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+            }
+
+            .risk-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .disclaimer-trigger {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .accordion-title {
+                font-size: 1em;
+            }
+
+            .step-number {
+                width: 32px;
+                height: 32px;
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1>Student Investing Guide</h1>
-            <p>A practical education pathway for building wealth in Australia</p>
-        </div>
-    </header>
+    <!-- Disclaimer Banner (collapsed by default) -->
+    <div class="disclaimer-banner" id="disclaimerBanner">
+        <button class="disclaimer-close" onclick="toggleDisclaimer()" aria-label="Close disclaimer">×</button>
+        <strong>⚠️ IMPORTANT DISCLAIMER</strong>
+        <p>
+            This guide is <strong>general education only</strong> — not personal financial advice. 
+            Portfolio examples are Dad's coaching frameworks for discussion. Investing involves risk of loss. 
+            Always read the PDS before investing. For tax questions, speak with a registered tax agent.
+        </p>
+    </div>
 
     <!-- Navigation -->
-    <nav class="guide-nav">
-        <div class="container">
-            <a href="index.html" class="btn btn--outline">← Back to Calculator</a>
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <button class="disclaimer-trigger" onclick="toggleDisclaimer()">
+                <span>⚠️</span>
+                <span>Disclaimer</span>
+            </button>
         </div>
     </nav>
 
+    <!-- Hero -->
+    <div class="hero">
+        <h1>🚀 Start Investing</h1>
+        <p>A simple, directive guide for Australian young adults. Follow the 5 steps, pick your risk profile, and you'll know exactly which ETFs to buy.</p>
+        <p style="font-size: 0.95em; margin-top: var(--spacing-sm);">Built on Dad's coaching framework.</p>
+    </div>
+
     <!-- Main Content -->
-    <section class="guide-content">
-        <div class="container">
-            
-            <!-- Educational Disclaimer -->
-            <div class="disclaimer-banner">
-                <p><strong>General Education Only:</strong> This guide provides general financial education and is not personal financial advice. Consider your own circumstances and consult a licensed financial adviser before making investment decisions.</p>
-            </div>
+    <div class="container">
+        <!-- 5-Step Accordion -->
+        <section>
+            <h2 class="section-title">Your 5-Step Journey</h2>
+            <p style="margin-bottom: var(--spacing-lg); color: var(--color-text-secondary);">Click each step to expand. Complete them in order.</p>
 
-            <!-- Introduction -->
-            <div class="guide-section">
-                <h2>Getting Started: The Bucket Strategy</h2>
-                <p>The "bucket" approach divides your income into clear categories, each with a specific purpose. This ensures every dollar has a job while balancing your current needs with future goals.</p>
-            </div>
-
-            <!-- The Buckets -->
-            <div class="guide-section">
-                <h3>1. Fixed Expenses</h3>
-                <p><strong>What it covers:</strong> Rent, food, transport, utilities, phone, and other essential living costs.</p>
-                <p><strong>Why it matters:</strong> These are non-negotiable expenses that must be covered first. Understanding your baseline cost of living is the foundation of any financial plan.</p>
-                <p><strong>Tip:</strong> Use the <a href="index.html">expense calculator</a> to estimate realistic costs for your city.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>2. Emergency Fund</h3>
-                <p><strong>Goal:</strong> Save 3–6 months of living expenses in a high-interest savings account.</p>
-                <p><strong>Why it matters:</strong> Life is unpredictable. An emergency fund protects you from going into debt when unexpected expenses arise (medical bills, car repairs, job loss).</p>
-                <p><strong>Where to keep it:</strong> High-interest savings accounts like UBank Save offer competitive rates while keeping funds accessible. Rates change regularly, so compare current offers.</p>
-                <p><strong>Strategy:</strong> Allocate 20–30% of your remaining income (after fixed expenses) until you reach your target.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>3. Big Goal Savings (Optional)</h3>
-                <p><strong>What it's for:</strong> Specific large purchases like a laptop, overseas trip, car, or house deposit.</p>
-                <p><strong>Why separate it:</strong> Keeping goal money separate from your emergency fund prevents you from dipping into your safety net.</p>
-                <p><strong>Where to keep it:</strong> A dedicated savings account with a clear label for your goal.</p>
-                <p><strong>Strategy:</strong> Calculate how much you need to save monthly based on your target amount and timeline.</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>4. Core Investments (Long-Term Growth)</h3>
-                <p><strong>Purpose:</strong> Build wealth steadily over time through low-cost, diversified investments.</p>
-                <p><strong>Approach:</strong> Choose a risk profile that matches your goals, timeline, and comfort with market volatility. Each profile includes specific ETF recommendations with exact portfolio weights.</p>
-                
-                <h4>Choose Your Risk Profile:</h4>
-                
-                <div class="risk-profile-cards">
-                    <!-- Conservative Profile -->
-                    <div class="risk-profile-card">
-                        <h5>🛡️ Conservative</h5>
-                        <p class="profile-desc">Lower volatility, income focus, capital preservation. Suitable for shorter timelines (1-3 years) or low risk tolerance.</p>
-                        <p><strong>Core ETFs:</strong></p>
-                        <ul>
-                            <li><strong>AAA</strong> (Betashares Australian High Interest Cash ETF) – Cash exposure with daily liquidity</li>
-                            <li><strong>QPON</strong> (Betashares Australian Investment Grade Corporate Bond ETF) – Investment-grade bonds</li>
-                            <li><strong>CRED</strong> (Betashares Sustainable Australian Corporate Bond ETF) – Sustainable bond exposure</li>
-                            <li><strong>WBND</strong> (Betashares Diversified All-Growth ETF) – Diversified bond allocation</li>
-                            <li><strong>A200</strong> (Betashares Australia 200 ETF) – Australian equities (smaller allocation)</li>
-                            <li><strong>BGBL</strong> (Betashares Global Leaders Sustainability ETF) – Global equities (smaller allocation)</li>
-                        </ul>
-                        <p><em>Exact portfolio weights and detailed allocation coming soon.</em></p>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-title">
+                            <div class="step-number">1</div>
+                            <span>Build Your Safety Net First</span>
+                        </div>
+                        <div class="accordion-icon">+</div>
                     </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Don't invest until you have an emergency fund.</strong></p>
+                            
+                            <h4>What you need:</h4>
+                            <ul>
+                                <li><strong>Minimum:</strong> $2,000–$3,000 for unexpected expenses</li>
+                                <li><strong>Target:</strong> 3–6 months of living expenses</li>
+                                <li><strong>Where:</strong> High-interest savings account (UBank, ING, Macquarie)</li>
+                            </ul>
 
-                    <!-- Balanced Profile -->
-                    <div class="risk-profile-card">
-                        <h5>⚖️ Balanced</h5>
-                        <p class="profile-desc">Moderate growth with diversification. Suitable for medium timelines (3-7 years) and moderate risk tolerance.</p>
-                        <p><strong>Core ETFs:</strong></p>
-                        <ul>
-                            <li><strong>Simple Option:</strong> A200 (40%) + BGBL (60%)</li>
-                            <li><strong>Alternative:</strong> VAS + VGS split</li>
-                            <li><strong>Enhanced:</strong> Add AAA or CRED for stability</li>
-                        </ul>
-                        <p><strong>A200 (Betashares Australia 200 ETF)</strong> – Ultra-low fee (0.04% p.a.), tracks Australia's top 200 companies</p>
-                        <p><strong>BGBL (Betashares Global Leaders Sustainability ETF)</strong> – Global diversification with sustainability focus (0.49% p.a.)</p>
-                        <p><strong>VAS (Vanguard Australian Shares)</strong> – Alternative Australian exposure (0.07% p.a.)</p>
-                        <p><strong>VGS (Vanguard International Shares)</strong> – Alternative global exposure (0.18% p.a.)</p>
-                        <p><em>Exact portfolio weights and detailed allocation coming soon.</em></p>
-                    </div>
+                            <h4>Money buckets (from Dad's framework):</h4>
+                            <p>Your income splits into buckets:</p>
+                            <ol>
+                                <li><strong>Fixed expenses</strong> — rent, food, transport (cover first)</li>
+                                <li><strong>Emergency fund</strong> — build to target, then maintain</li>
+                                <li><strong>Big goal</strong> — car, trip, house deposit (optional)</li>
+                                <li><strong>Investments</strong> — ETFs for long-term growth (~10–15% of leftover)</li>
+                                <li><strong>Flexible spending</strong> — fun, lifestyle, buffer (rest)</li>
+                            </ol>
 
-                    <!-- Growth Profile -->
-                    <div class="risk-profile-card">
-                        <h5>🚀 Growth</h5>
-                        <p class="profile-desc">Higher growth potential with higher volatility. Suitable for long timelines (7+ years) and high risk tolerance.</p>
-                        <p><strong>Core ETFs:</strong></p>
-                        <ul>
-                            <li><strong>NDQ</strong> (Betashares NASDAQ 100 ETF) – US tech and innovation exposure</li>
-                            <li><strong>BGBL</strong> (Betashares Global Leaders Sustainability ETF) – Global sustainability leaders</li>
-                            <li><strong>A200</strong> (Betashares Australia 200 ETF) – Australian market exposure</li>
-                            <li><strong>ASIA</strong> (Betashares Asia Technology Tigers ETF) – Asian tech growth</li>
-                            <li><strong>BEMG</strong> (Betashares Emerging Markets ETF) – Emerging market exposure</li>
-                        </ul>
-                        <p><strong>Optional Satellite:</strong> Add tiny allocation to <strong>QBTC</strong> (Betashares Bitcoin ETF) after core is established — high risk, small slice only.</p>
-                        <p><em>Exact portfolio weights and detailed allocation coming soon.</em></p>
+                            <p style="margin-top: var(--spacing-md);">
+                                <strong>💡 Use the <a href="index.html" style="color: var(--color-primary);">Student Wealth Builder calculator</a></strong> to estimate your expenses and see bucket allocations.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <p style="margin-top: var(--space-24);"><strong>Strategy:</strong> Invest 10% of remaining income monthly using dollar-cost averaging (regular investing regardless of market ups and downs) to reduce timing risk.</p>
-                <p><strong>Where to invest:</strong> <a href="https://direct.betashares.com.au" target="_blank" rel="noopener">Betashares Direct</a> offers zero-fee brokerage on all ASX ETFs, fractional investing from $10, and Auto-Invest for regular contributions.</p>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-title">
+                            <div class="step-number">2</div>
+                            <span>Open Betashares Direct (Individual)</span>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>You're an adult, so open a <strong>Betashares Direct Individual account</strong> (not Kids).</p>
+                            
+                            <h4>What to do:</h4>
+                            <ol>
+                                <li>Go to <a href="https://direct.betashares.com.au" target="_blank" style="color: var(--color-primary);">direct.betashares.com.au</a></li>
+                                <li>Sign up for an <strong>Individual</strong> account</li>
+                                <li><strong>Quote your Tax File Number (TFN)</strong> — avoids extra withholding tax</li>
+                                <li>Complete identity verification</li>
+                            </ol>
+
+                            <div class="info-box">
+                                <strong>Why Betashares Direct?</strong>
+                                <ul>
+                                    <li>$0 brokerage on ASX ETFs (Manual DIY mode)</li>
+                                    <li>Fractional investing (buy with any dollar amount)</li>
+                                    <li>Auto-Invest option for set-and-forget</li>
+                                </ul>
+                            </div>
+
+                            <div class="warning-box">
+                                <strong>Note:</strong> Betashares Direct is <strong>custodial</strong> (no personal HIN). 
+                                Your holdings are safe and segregated. If you want CHESS later, consider Stake or CMC Invest.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-title">
+                            <div class="step-number">3</div>
+                            <span>Fund Your Account</span>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Set up recurring bank transfers to your Betashares Direct Wallet.</p>
+                            
+                            <h4>How to fund:</h4>
+                            <ol>
+                                <li>In Betashares Direct, find your Wallet <strong>BSB + account number</strong></li>
+                                <li>Set up recurring bank transfer from your bank (weekly/fortnightly/monthly)</li>
+                                <li><strong>Osko</strong> often makes BSB transfers instant</li>
+                                <li>Start small ($50–$200/month is fine)</li>
+                            </ol>
+
+                            <p style="margin-top: var(--spacing-md);"><strong>Note:</strong> PayID is not advertised on Betashares Direct — use BSB + account number.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-title">
+                            <div class="step-number">4</div>
+                            <span>Pick Your Risk Profile & Buy ETFs</span>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>This is the key step.</strong> Choose your risk profile below, then buy the exact ETFs listed.</p>
+                            <p>Scroll down to the <strong>"Choose Your Allocation"</strong> section to see Conservative, Balanced, or Growth options with specific tickers and percentages.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-title">
+                            <div class="step-number">5</div>
+                            <span>Automate & Leave Alone</span>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <h4>How to automate:</h4>
+                            <ul>
+                                <li><strong>Manual DIY (recommended while small):</strong> Buy manually each month when your transfer arrives — takes 2 minutes, $0 fees</li>
+                                <li><strong>Auto-Invest:</strong> Set up if all your ETFs are Betashares (up to 5 ETFs, fixed $ amounts)</li>
+                                <li><strong>Custom Portfolio:</strong> Use only if you want % auto-rebalancing and accept ~$3–4.50/month fee (better for $10k+ balances)</li>
+                            </ul>
+
+                            <h4>Then leave it alone:</h4>
+                            <ul>
+                                <li>Review once a year</li>
+                                <li>Don't check daily — time in the market beats timing the market</li>
+                                <li>Keep contributing regularly (dollar-cost averaging)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="guide-section">
-                <h3>5. Satellite Investments (Higher Risk, Smaller Slice)</h3>
-                <p><strong>Purpose:</strong> Take calculated risks on growth-focused investments for diversification and potential higher returns.</p>
-                <p><strong>Key principle:</strong> Only allocate a small percentage (e.g., 2-3%) of your remaining income here. This limits downside risk while giving you exposure to emerging opportunities.</p>
-                
-                <h4>When to Add Satellite Investments:</h4>
-                <ul>
-                    <li>✅ After your core portfolio is established</li>
-                    <li>✅ When you understand the risks</li>
-                    <li>✅ Keep allocation very small (2-3% maximum)</li>
-                </ul>
+        <!-- Risk Profile Cards -->
+        <section id="choose-allocation">
+            <h2 class="section-title">Choose Your Allocation</h2>
+            <p style="margin-bottom: var(--spacing-lg); color: var(--color-text-secondary);">
+                Pick your risk level. Each shows <strong>exact tickers and percentages</strong> to buy. 
+                These are Dad's coaching examples for education — not personal advice.
+            </p>
 
-                <h4>Example: Bitcoin Exposure via QBTC</h4>
-                <ul>
-                    <li><strong>QBTC (Betashares Bitcoin ETF)</strong> – Provides regulated exposure to Bitcoin through an ASX-listed ETF without managing cryptocurrency wallets directly.</li>
-                    <li><strong>Risk level:</strong> Very high. Bitcoin is extremely volatile and speculative.</li>
-                    <li><strong>Approach:</strong> Treat as a tiny "opportunity" slice. Never invest more than you can afford to lose completely.</li>
-                    <li><strong>Timing:</strong> Consider adding QBTC only after your core holdings are established and performing.</li>
-                </ul>
-                
-                <p><strong>Note:</strong> Do not use diversified crypto ETFs (like CRYP) if you specifically want Bitcoin exposure—they hold a basket of different cryptocurrencies. Growth risk profiles above may include QBTC as an optional satellite position.</p>
+            <div class="risk-cards">
+                <!-- Conservative Card -->
+                <div class="risk-card" onclick="toggleRiskCard(this)">
+                    <div class="risk-badge conservative">Lower Risk</div>
+                    <h3>Conservative</h3>
+                    <p>More bonds, lower volatility. Long-term focus with smoother ride.</p>
+                    
+                    <div class="portfolio-details">
+                        <h4 style="margin-top: var(--spacing-lg); color: var(--color-text);">Who it's for:</h4>
+                        <p>You want steady growth with less ups and downs. You're nervous about big market swings or need money in 5–10 years.</p>
+
+                        <h4 style="margin-top: var(--spacing-md); color: var(--color-text);">Exact allocation:</h4>
+                        <div class="allocation-grid">
+                            <div class="allocation-item">
+                                <span class="ticker">AAA</span>
+                                <span class="percentage">30%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">QPON</span>
+                                <span class="percentage">20%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">CRED</span>
+                                <span class="percentage">15%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">WBND</span>
+                                <span class="percentage">15%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">A200</span>
+                                <span class="percentage">10%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">BGBL</span>
+                                <span class="percentage">10%</span>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 0.9em; color: var(--color-text-secondary); margin-top: var(--spacing-sm);">
+                            <strong>Note:</strong> Bonds (AAA, QPON, CRED, WBND) = lower risk, lower return. 
+                            Shares (A200, BGBL) = higher growth potential.
+                        </p>
+
+                        <div class="buy-checklist">
+                            <h4>💰 How to buy (example: $100/month)</h4>
+                            <ol>
+                                <li>In Betashares Direct, search <strong>AAA</strong> → buy $30</li>
+                                <li>Search <strong>QPON</strong> → buy $20</li>
+                                <li>Search <strong>CRED</strong> → buy $15</li>
+                                <li>Search <strong>WBND</strong> → buy $15</li>
+                                <li>Search <strong>A200</strong> → buy $10</li>
+                                <li>Search <strong>BGBL</strong> → buy $10</li>
+                            </ol>
+                            <p style="margin-top: var(--spacing-sm); font-size: 0.9em;">
+                                Manual DIY = $0 brokerage. Scale these amounts up/down for your monthly contribution.
+                            </p>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Risk warning:</strong> Even conservative portfolios can lose value in the short term. 
+                            Don't invest money you need in the next 3–5 years.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Balanced Card -->
+                <div class="risk-card" onclick="toggleRiskCard(this)">
+                    <div class="risk-badge balanced">Neutral Risk</div>
+                    <h3>Balanced</h3>
+                    <p>Mix of shares and bonds. Default for most young investors.</p>
+                    
+                    <div class="portfolio-details">
+                        <h4 style="margin-top: var(--spacing-lg); color: var(--color-text);">Who it's for:</h4>
+                        <p>Most young adults (~18–30). You want growth but don't want 100% shares. 
+                           Long-term investor (10+ years) who can handle normal market ups and downs.</p>
+
+                        <h4 style="margin-top: var(--spacing-md); color: var(--color-text);">Standard Balanced:</h4>
+                        <div class="allocation-grid">
+                            <div class="allocation-item">
+                                <span class="ticker">BGBL</span>
+                                <span class="percentage">45%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">A200</span>
+                                <span class="percentage">30%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">CRED</span>
+                                <span class="percentage">15%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">AAA</span>
+                                <span class="percentage">10%</span>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: var(--spacing-lg); color: var(--color-text);">Ultra-Simple 2-ETF Balanced:</h4>
+                        <p style="font-size: 0.95em; color: var(--color-text-secondary); margin-bottom: var(--spacing-sm);">
+                            If you want the simplest possible path:
+                        </p>
+                        <div class="allocation-grid">
+                            <div class="allocation-item">
+                                <span class="ticker">BGBL</span>
+                                <span class="percentage">60%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">A200</span>
+                                <span class="percentage">40%</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9em; color: var(--color-text-secondary); margin-top: var(--spacing-sm);">
+                            <strong>Benefit:</strong> Only 2 ETFs to track. Easy to maintain. Still diversified.
+                        </p>
+
+                        <h4 style="margin-top: var(--spacing-lg); color: var(--color-text);">Mixed-issuer alternative:</h4>
+                        <p style="font-size: 0.95em; color: var(--color-text-secondary); margin-bottom: var(--spacing-sm);">
+                            VAS (Vanguard Australian shares) + VGS (Vanguard global shares) — same concept, different issuer. 
+                            Requires manual buys (Vanguard not in Betashares Auto-Invest).
+                        </p>
+
+                        <div class="buy-checklist">
+                            <h4>💰 How to buy Standard Balanced (example: $100/month)</h4>
+                            <ol>
+                                <li>Search <strong>BGBL</strong> → buy $45</li>
+                                <li>Search <strong>A200</strong> → buy $30</li>
+                                <li>Search <strong>CRED</strong> → buy $15</li>
+                                <li>Search <strong>AAA</strong> → buy $10</li>
+                            </ol>
+                        </div>
+
+                        <div class="buy-checklist">
+                            <h4>💰 How to buy Ultra-Simple (example: $100/month)</h4>
+                            <ol>
+                                <li>Search <strong>BGBL</strong> → buy $60</li>
+                                <li>Search <strong>A200</strong> → buy $40</li>
+                            </ol>
+                            <p style="margin-top: var(--spacing-sm); font-size: 0.9em;">
+                                That's it! Easiest to automate with Auto-Invest.
+                            </p>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Risk warning:</strong> Shares can fall 20–40% in bad markets. 
+                            You must be comfortable holding through downturns.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth Card -->
+                <div class="risk-card" onclick="toggleRiskCard(this)">
+                    <div class="risk-badge growth">Higher Risk</div>
+                    <h3>Growth</h3>
+                    <p>More volatile, higher growth potential. Long time horizon required.</p>
+                    
+                    <div class="portfolio-details">
+                        <h4 style="margin-top: var(--spacing-lg); color: var(--color-text);">Who it's for:</h4>
+                        <p>Young investors (20s–early 30s) with 15+ year horizon. You can stomach big swings and want maximum growth. 
+                           You won't panic-sell in a crash.</p>
+
+                        <h4 style="margin-top: var(--spacing-md); color: var(--color-text);">Exact allocation:</h4>
+                        <div class="allocation-grid">
+                            <div class="allocation-item">
+                                <span class="ticker">NDQ</span>
+                                <span class="percentage">35%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">BGBL</span>
+                                <span class="percentage">25%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">ASIA</span>
+                                <span class="percentage">15%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">A200</span>
+                                <span class="percentage">15%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="ticker">BEMG</span>
+                                <span class="percentage">10%</span>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 0.9em; color: var(--color-text-secondary); margin-top: var(--spacing-sm);">
+                            <strong>What this is:</strong> Tech-heavy (NDQ = NASDAQ), global diversification, emerging markets. 
+                            No bonds = higher volatility.
+                        </p>
+
+                        <h4 style="margin-top: var(--spacing-lg); color: var(--color-text);">Optional crypto add-on:</h4>
+                        <p style="font-size: 0.95em; color: var(--color-text-secondary);">
+                            If you insist on Bitcoin exposure: <strong>QBTC max 1–3%</strong> only. 
+                            Very high risk. Not required for growth portfolio.
+                        </p>
+
+                        <div class="buy-checklist">
+                            <h4>💰 How to buy (example: $100/month)</h4>
+                            <ol>
+                                <li>Search <strong>NDQ</strong> → buy $35</li>
+                                <li>Search <strong>BGBL</strong> → buy $25</li>
+                                <li>Search <strong>ASIA</strong> → buy $15</li>
+                                <li>Search <strong>A200</strong> → buy $15</li>
+                                <li>Search <strong>BEMG</strong> → buy $10</li>
+                            </ol>
+                            <p style="margin-top: var(--spacing-sm); font-size: 0.9em;">
+                                <em>Optional:</em> Add $1–3 to QBTC if you want Bitcoin (max 3% total allocation).
+                            </p>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Risk warning:</strong> This portfolio can fall 40–60% in severe markets. 
+                            Tech (NDQ) and emerging markets (ASIA, BEMG) are volatile. 
+                            Only use if you won't panic-sell and have 15+ years before you need the money.
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="guide-section">
-                <h3>6. Flexible Spending</h3>
-                <p><strong>What it's for:</strong> Lifestyle, entertainment, dining out, hobbies—everything that makes life enjoyable.</p>
-                <p><strong>Why it matters:</strong> A sustainable financial plan needs room for fun. Flexible spending prevents burnout and keeps you motivated to stick with your strategy.</p>
-                <p><strong>Strategy:</strong> Whatever remains after allocating to savings and investments is yours to spend guilt-free.</p>
+        <!-- Glossary (Collapsed) -->
+        <section>
+            <div class="simple-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleSection('glossary')">
+                    <h3 style="margin: 0;">📚 Key Terms (Click to Expand)</h3>
+                    <span style="font-size: 1.5em; color: var(--color-primary);" id="glossary-icon">+</span>
+                </div>
+                <div id="glossary-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                    <div style="padding-top: var(--spacing-lg);">
+                        <p><strong>ETF (Exchange Traded Fund):</strong> A basket of investments that trades on the stock exchange. 
+                           When you buy VGS, you own a slice of ~1,400 global companies.</p>
+                        
+                        <p><strong>Ticker:</strong> The ASX code for an ETF (e.g., A200, BGBL, NDQ).</p>
+                        
+                        <p><strong>MER (Management Expense Ratio):</strong> Annual fee as % of investment. 
+                           Example: A200 = 0.04% p.a. = $0.40/year on $1,000.</p>
+                        
+                        <p><strong>Fractional shares:</strong> Buy less than 1 full unit. Betashares Direct supports this.</p>
+                        
+                        <p><strong>DCA (Dollar-Cost Averaging):</strong> Invest a fixed amount regularly (e.g., $200/month). 
+                           Smooths out price swings.</p>
+                        
+                        <p><strong>Custodial vs CHESS:</strong> Betashares = custodial (no personal HIN). 
+                           CHESS = shares in your name with HIN (Holder Identification Number). 
+                           Both are safe; CHESS offers more portability.</p>
+                        
+                        <p><strong>TFN (Tax File Number):</strong> Quote it when opening accounts to avoid extra withholding tax.</p>
+                        
+                        <p><strong>Franking credits:</strong> Tax credit for Australian shares (applies to A200, VAS). 
+                           Can boost after-tax returns for low-income earners.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Platforms & Tools -->
-            <div class="guide-section">
-                <h2>Recommended Tools & Apps</h2>
-                
-                <h3>1. Up Bank (Transaction Account & Budgeting)</h3>
-                <ul>
-                    <li>Free transaction account with automated budgeting features</li>
-                    <li>Fee-free international transactions</li>
-                    <li>"Pay Splitting" automatically divides income into savings goals</li>
-                    <li>Real-time spending notifications</li>
-                </ul>
-                <p><a href="https://up.com.au/" target="_blank" rel="noopener">Visit Up Bank</a></p>
-
-                <h3>2. UBank Save (Emergency Fund Storage)</h3>
-                <ul>
-                    <li>High-interest savings account for emergency funds</li>
-                    <li>Rates are competitive but change regularly—check current offers before opening</li>
-                    <li>No penalties for withdrawals, but may require regular deposits to maintain bonus rates</li>
-                </ul>
-                <p><a href="https://www.ubank.com.au/banking/savings-account" target="_blank" rel="noopener">Visit UBank</a></p>
-
-                <h3>3. Betashares Direct (Zero-Fee ETF Investing)</h3>
-                <ul>
-                    <li>Free brokerage on all ASX-listed ETFs (including VAS, VGS, A200, BGBL, QBTC)</li>
-                    <li>Fractional investing—start with as little as $10</li>
-                    <li>Auto-Invest feature for regular contributions (available on $3/month Custom Portfolio tier)</li>
-                    <li><strong>Account type:</strong> Individual account for adults (18+). Not suitable for minors or Kids informal trusts.</li>
-                </ul>
-                <p><a href="https://direct.betashares.com.au" target="_blank" rel="noopener">Visit Betashares Direct</a></p>
-
-                <h3>4. Frollo (Budget Tracking & Goals)</h3>
-                <ul>
-                    <li>Open banking integration to automatically track spending</li>
-                    <li>Set and monitor savings goals</li>
-                    <li>Spending alerts and insights</li>
-                </ul>
-                <p><a href="https://frollo.com.au/" target="_blank" rel="noopener">Visit Frollo</a></p>
+        <!-- Quick Links Footer Section -->
+        <section>
+            <div class="simple-section">
+                <h3>📎 Essential Links</h3>
+                <div class="footer-links">
+                    <div>
+                        <strong>Betashares Direct:</strong><br>
+                        <a href="https://direct.betashares.com.au" target="_blank" class="footer-link">Sign up / Login</a><br>
+                        <a href="https://www.betashares.com.au/direct/pricing" target="_blank" class="footer-link">Pricing</a><br>
+                        <a href="https://www.betashares.com.au/direct/faq" target="_blank" class="footer-link">FAQ</a>
+                    </div>
+                    <div>
+                        <strong>Government Resources:</strong><br>
+                        <a href="https://moneysmart.gov.au/managed-funds-and-etfs/exchange-traded-funds-etfs" target="_blank" class="footer-link">MoneySmart ETFs</a><br>
+                        <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/shares-funds-and-trusts/investing-in-shares/refund-of-franking-credits-for-individuals" target="_blank" class="footer-link">ATO Franking Credits</a>
+                    </div>
+                    <div>
+                        <strong>Tools:</strong><br>
+                        <a href="index.html" class="footer-link">Expense Calculator</a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Key Concepts -->
-            <div class="guide-section">
-                <h2>Key Financial Concepts</h2>
-                
-                <h3>ETF (Exchange Traded Fund)</h3>
-                <p>An investment fund that holds a basket of assets (stocks, bonds, etc.) and trades on the stock exchange like a regular share. ETFs provide instant diversification—one purchase spreads your investment across dozens or hundreds of companies.</p>
-
-                <h3>Index Fund</h3>
-                <p>A type of fund (often an ETF) that tracks a specific market index, like the ASX 200 (Australia's top 200 companies). Index funds are passively managed, resulting in very low fees compared to actively managed funds.</p>
-
-                <h3>Dollar Cost Averaging</h3>
-                <p>Investing a fixed amount regularly (e.g., monthly) regardless of market conditions. This strategy reduces the risk of investing all your money at a market peak.</p>
-
-                <h3>Core vs. Satellite Strategy</h3>
-                <p>An investment approach where the "core" consists of stable, diversified, low-cost holdings (like VAS/VGS or A200/BGBL), while the "satellite" includes smaller, higher-risk positions (like QBTC) for growth potential.</p>
-
-                <h3>Emergency Fund</h3>
-                <p>A cash reserve covering 3–6 months of living expenses, kept in an accessible savings account. This protects you from needing to take on debt or sell investments during financial emergencies.</p>
-
-                <h3>Franking Credits</h3>
-                <p>Australian companies pay tax on profits before distributing dividends. Franking credits prevent double taxation by passing this tax credit to shareholders. Low-income earners may receive refunds from franked dividends.</p>
-
-                <h3>Superannuation (Super)</h3>
-                <p>Australia's retirement savings system. Employers contribute 11.5% of your salary (increasing to 12% by 2025). You can make additional voluntary contributions to boost retirement savings and access government bonuses (co-contributions, low income super tax offset).</p>
+        <!-- Weekend Checklist (Collapsed) -->
+        <section>
+            <div class="simple-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleSection('checklist')">
+                    <h3 style="margin: 0;">✅ Weekend Onboarding Checklist (Click to Expand)</h3>
+                    <span style="font-size: 1.5em; color: var(--color-primary);" id="checklist-icon">+</span>
+                </div>
+                <div id="checklist-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                    <div style="padding-top: var(--spacing-lg);">
+                        <ol>
+                            <li>Calculate emergency fund target (3–6 months expenses)</li>
+                            <li>Open high-interest savings account (UBank, ING, etc.)</li>
+                            <li>Save emergency fund before investing</li>
+                            <li>Sign up for Betashares Direct Individual + quote TFN</li>
+                            <li>Set up recurring bank transfer to Wallet</li>
+                            <li>Pick Conservative/Balanced/Growth profile above</li>
+                            <li>Read PDS for your chosen ETFs</li>
+                            <li>Make first purchase (Manual DIY, $0 brokerage)</li>
+                            <li>Set monthly reminder or use Auto-Invest</li>
+                            <li>Tell Dad you're set up 🎉</li>
+                        </ol>
+                    </div>
+                </div>
             </div>
-
-            <!-- Common Mistakes -->
-            <div class="guide-section">
-                <h2>Common Mistakes to Avoid</h2>
-                <ul>
-                    <li><strong>Skipping the emergency fund:</strong> Without a safety net, unexpected expenses can derail your financial plan.</li>
-                    <li><strong>Investing before understanding costs:</strong> Know your fixed expenses and have an emergency fund before investing.</li>
-                    <li><strong>Chasing performance:</strong> Past returns don't guarantee future results. Stick to low-cost, diversified core holdings.</li>
-                    <li><strong>Over-allocating to high-risk assets:</strong> Keep satellite investments (like QBTC) to a small percentage of your portfolio.</li>
-                    <li><strong>Timing the market:</strong> Regular investing (dollar cost averaging) beats trying to predict market movements.</li>
-                    <li><strong>Ignoring fees:</strong> High fees compound over time. Choose low-cost index ETFs for core holdings.</li>
-                </ul>
-            </div>
-
-            <!-- Next Steps -->
-            <div class="guide-section">
-                <h2>Your Next Steps</h2>
-                <ol>
-                    <li><strong>Calculate your living expenses</strong> using the <a href="index.html">expense calculator</a>.</li>
-                    <li><strong>Open a high-interest savings account</strong> and start building your emergency fund (3–6 months of expenses).</li>
-                    <li><strong>Set up a transaction account</strong> with budgeting features (like Up Bank) to automate savings.</li>
-                    <li><strong>Once you have an emergency fund buffer</strong> (even if not fully funded), open an investing account with Betashares Direct or another platform.</li>
-                    <li><strong>Start small:</strong> Begin with $50–100 monthly into core ETFs (like A200 + BGBL) using Auto-Invest.</li>
-                    <li><strong>Review quarterly:</strong> Check your progress, adjust allocations if your income or expenses change.</li>
-                </ol>
-            </div>
-
-            <!-- Footer Disclaimer -->
-            <div class="disclaimer-banner" style="margin-top: 40px;">
-                <p><strong>Remember:</strong> This is general education only, not personal financial advice. Your circumstances are unique. Consider seeking advice from a licensed financial adviser before making investment decisions. ETF and app information is current as of 2025 but may change—always verify details on official websites.</p>
-            </div>
-
-            <!-- CTA Back to Calculator -->
-            <div class="cta-center" style="margin-top: 40px; margin-bottom: 40px;">
-                <a href="index.html" class="btn btn--primary btn--lg">Try the Expense Calculator</a>
-            </div>
-
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Australian Student Wealth Builder. Educational purposes only — not financial advice.</p>
-        </div>
-    </footer>
+    <div class="footer">
+        <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-sm);">
+            <strong>This guide is educational only — not personal financial advice.</strong><br>
+            Portfolio examples are Dad's coaching frameworks for discussion. Always read the PDS before investing.
+        </p>
+        <p style="color: var(--color-text-secondary); font-size: 0.9em;">
+            Built with ❤️ for the kids | 
+            <a href="index.html" style="color: var(--color-primary);">Wealth Builder Calculator</a> | 
+            <a href="https://github.com/leezo77/kidsWealthStrategy" target="_blank" style="color: var(--color-primary);">GitHub</a>
+        </p>
+    </div>
+
+    <script>
+        // Disclaimer toggle with localStorage
+        function toggleDisclaimer() {
+            const banner = document.getElementById('disclaimerBanner');
+            const isVisible = banner.classList.contains('visible');
+            
+            if (isVisible) {
+                banner.classList.remove('visible');
+                localStorage.setItem('disclaimerDismissed', 'true');
+            } else {
+                banner.classList.add('visible');
+                localStorage.removeItem('disclaimerDismissed');
+            }
+        }
+
+        // Check localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const dismissed = localStorage.getItem('disclaimerDismissed');
+            if (!dismissed) {
+                document.getElementById('disclaimerBanner').classList.add('visible');
+            }
+        });
+
+        // Accordion toggle (only one open at a time)
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all accordion items
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't already open
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Risk card toggle (only one open at a time)
+        function toggleRiskCard(card) {
+            const isActive = card.classList.contains('active');
+            
+            // Close all risk cards
+            document.querySelectorAll('.risk-card').forEach(c => {
+                c.classList.remove('active');
+            });
+            
+            // Open clicked card if it wasn't already open
+            if (!isActive) {
+                card.classList.add('active');
+            }
+        }
+
+        // Toggle collapsible sections
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId + '-content');
+            const icon = document.getElementById(sectionId + '-icon');
+            
+            if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+                content.style.maxHeight = '2000px';
+                icon.textContent = '−';
+            } else {
+                content.style.maxHeight = '0px';
+                icon.textContent = '+';
+            }
+        }
+    </script>
 </body>
 </html>
