@@ -102,17 +102,17 @@ const presetExpenses = [
 // Definitions data
 const definitions = {
     "Remaining Income": "Your income after fixed everyday expenses. This is what you allocate between savings, investments, and flexible spending.",
-    "Emergency Fund": "Money saved for unexpected expenses, job loss, or emergencies. Should cover 3-6 months of your living expenses.",
-    "Core Investments": "Stable, low-cost ETFs (VAS + VGS) forming the foundation of your investment portfolio with steady long-term growth.",
-    "Satellite Investments": "Higher-risk, growth-focused investments (Bitcoin ETF) for diversification and potential higher returns.",
-    "VAS": "Vanguard Australian Shares ETF - tracks ASX 200 largest Australian companies with very low fees (0.07% per year).",
-    "VGS": "Vanguard Global Shares ETF - provides exposure to international markets including US, Europe, and Japan.",
-    "Bitcoin ETF": "Regulated way to invest in Bitcoin through your brokerage account without managing cryptocurrency directly.",
-    "Dollar Cost Averaging": "Investing the same amount regularly regardless of market conditions to reduce timing risk.",
-    "LISTO": "Low Income Super Tax Offset - Government refund of up to $500 for super contributions if earning under $37,000.",
-    "Franking Credits": "Tax credits from Australian companies that provide tax refunds for low-income earners.",
-    "Superannuation": "Australia's retirement system where employers contribute 12% of salary, with government bonuses available.",
-    "Big Goal Savings": "Dedicated savings for specific large purchases like travel, car, or house deposit with target timeline."
+    "Emergency Fund": "Money saved for unexpected expenses, job loss, or emergencies. Should cover 3-6 months of your living expenses in an accessible savings account.",
+    "Core Investments": "Stable, low-cost index ETFs forming the foundation of your portfolio. Examples: VAS+VGS or A200+BGBL for balanced Australian and global exposure.",
+    "Satellite Investments": "Higher-risk, growth-focused investments (like QBTC) for diversification. Keep to a small percentage (e.g., 3%) of your portfolio.",
+    "ETF": "Exchange Traded Fund - spreads your investment across many companies. Provides instant diversification and trades on the stock exchange.",
+    "Index Fund": "A fund (often an ETF) that tracks a market index like the ASX 200. Low fees due to passive management.",
+    "QBTC": "Betashares Bitcoin ETF - provides regulated exposure to Bitcoin through the ASX without managing cryptocurrency wallets directly. High risk.",
+    "Dollar Cost Averaging": "Investing the same amount regularly regardless of market conditions to reduce timing risk and emotional decision-making.",
+    "A200 + BGBL": "Alternative core pair: Betashares Australia 200 ETF (0.04% fee) + Betashares Global Leaders Sustainability ETF. Good for Betashares Auto-Invest.",
+    "Franking Credits": "Tax credits from Australian companies that prevent double taxation. Low-income earners may receive refunds from franked dividends.",
+    "Superannuation": "Australia's retirement system where employers contribute 11.5%+ of salary, with government bonuses available for voluntary contributions.",
+    "Big Goal Savings": "Dedicated savings for specific large purchases like travel, car, or house deposit with a clear target amount and timeline."
 };
 
 // Chart instance

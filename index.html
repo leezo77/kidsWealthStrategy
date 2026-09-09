@@ -13,6 +13,9 @@
         <div class="container">
             <h1>Australian Student Wealth Builder</h1>
             <p>Calculate your living expenses and build your investment strategy</p>
+            <div style="margin-top: 16px;">
+                <a href="guide.html" class="btn btn--outline">📖 Read the Investing Guide</a>
+            </div>
         </div>
     </header>
 
@@ -20,7 +23,10 @@
     <nav class="tab-nav">
         <div class="container">
             <div class="tab-buttons">
-                
+                <button class="tab-btn active" data-tab="expenses">
+                    <span class="tab-icon">🏠</span>
+                    <span>Expenses</span>
+                </button>
                 <button class="tab-btn" data-tab="wealth">
                     <span class="tab-icon">💰</span>
                     <span>Wealth Strategy</span>
@@ -168,11 +174,16 @@
     </section>
 
     <!-- Tab 2: Wealth Strategy -->
-    <section id="wealth-tab" class="tab-content active">
+    <section id="wealth-tab" class="tab-content">
         <div class="container">
             <div class="tab-header">
                 <h2>Your Wealth Building Strategy</h2>
                 <p>Smart allocation based on your income and fixed expenses</p>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer-banner" style="margin-bottom: 24px; padding: 12px 16px; background: var(--color-bg-4); border-left: 4px solid var(--color-warning); border-radius: var(--radius-base);">
+                <p style="margin: 0; font-size: var(--font-size-sm);"><strong>General Education Only:</strong> This tool provides general financial education and is not personal financial advice. Consider your own circumstances and consult a licensed adviser before making investment decisions.</p>
             </div>
 
             <!-- Income Input -->
@@ -331,7 +342,7 @@
                             <div class="allocation-details">
                                 <div class="amount" id="coreAmount">$0</div>
                                 <div class="percentage" id="corePercent">10%</div>
-                                <p>10% to VAS (50%) + VGS (50%)</p>
+                                <p>10% to index ETFs (e.g., VAS+VGS or A200+BGBL)</p>
                             </div>
                         </div>
                         <div class="allocation-item">
@@ -342,7 +353,7 @@
                             <div class="allocation-details">
                                 <div class="amount" id="satelliteAmount">$0</div>
                                 <div class="percentage" id="satellitePercent">3%</div>
-                                <p>3% to Bitcoin ETF for growth</p>
+                                <p>3% to QBTC (Betashares Bitcoin ETF) — high risk</p>
                             </div>
                         </div>
                         <div class="allocation-item">
@@ -381,9 +392,9 @@
                         <h4>UBank Save</h4>
                         <p>High-interest emergency fund storage</p>
                         <ul class="app-features">
-                            <li>5.00% for 4 months, then 4.60% p.a.</li>
-                            <li>No penalties</li>
-                            <li>$500+ monthly deposit required</li>
+                            <li>Competitive interest rates (check current offers)</li>
+                            <li>No withdrawal penalties</li>
+                            <li>May require regular deposits for bonus rates</li>
                         </ul>
                         <div class="app-cost">Free</div>
                         <a href="https://www.ubank.com.au/banking/savings-account" target="_blank" class="btn btn--primary btn--sm">Get Started</a>
@@ -394,11 +405,12 @@
                         <p>Zero-fee ETF investing platform</p>
                         <ul class="app-features">
                             <li>Free brokerage on all ASX ETFs</li>
-                            <li>Fractional investing</li>
-                            <li>Auto-invest feature</li>
+                            <li>Fractional investing from $10</li>
+                            <li>Auto-Invest (on $3/mo Custom Portfolio tier)</li>
+                            <li>Individual account for adults (18+)</li>
                         </ul>
                         <div class="app-cost">Free brokerage</div>
-                        <a href="https://www.betashares.com.au/direct/" target="_blank" class="btn btn--primary btn--sm">Get Started</a>
+                        <a href="https://direct.betashares.com.au" target="_blank" class="btn btn--primary btn--sm">Get Started</a>
                     </div>
                     <div class="app-card">
                         <div class="app-priority">4</div>
@@ -481,7 +493,7 @@
                         </div>
                         <input type="range" id="corePercentSlider" class="allocation-slider" min="0" max="30" value="10">
                         <div class="slider-range">0% - 30%</div>
-                        <p class="slider-description">Percentage allocated to VAS (50%) + VGS (50%) ETFs</p>
+                        <p class="slider-description">Percentage allocated to index ETFs (e.g., VAS+VGS or A200+BGBL)</p>
                     </div>
 
                     <div class="allocation-slider-group">
@@ -491,7 +503,7 @@
                         </div>
                         <input type="range" id="satellitePercentSlider" class="allocation-slider" min="0" max="15" value="3">
                         <div class="slider-range">0% - 15%</div>
-                        <p class="slider-description">Percentage allocated to Bitcoin ETF for growth potential</p>
+                        <p class="slider-description">Percentage allocated to QBTC (Betashares Bitcoin ETF) — high risk</p>
                     </div>
 
                     <div class="allocation-slider-group">
@@ -573,16 +585,16 @@
                     <h4>Big Goal (optional)</h4>
                     <p>Save for a laptop, trip, car — you choose.</p>
                 </div>
-                <div class="bucket-card">
-                    <div class="bucket-icon">📈</div>
-                    <h4>Core Investments</h4>
-                    <p>Low-cost index funds (ETFs like VAS/VGS) for long-term growth.</p>
-                </div>
-                <div class="bucket-card">
-                    <div class="bucket-icon">🚀</div>
-                    <h4>Satellite Investments</h4>
-                    <p>Small slice for higher-risk ideas like a Bitcoin ETF.</p>
-                </div>
+                    <div class="bucket-card">
+                        <div class="bucket-icon">📈</div>
+                        <h4>Core Investments</h4>
+                        <p>Low-cost index ETFs (e.g., VAS+VGS or A200+BGBL) for long-term growth.</p>
+                    </div>
+                    <div class="bucket-card">
+                        <div class="bucket-icon">🚀</div>
+                        <h4>Satellite Investments</h4>
+                        <p>Small slice for higher-risk ideas like QBTC (Betashares Bitcoin ETF).</p>
+                    </div>
                 <div class="bucket-card">
                     <div class="bucket-icon">🎉</div>
                     <h4>Flexible Spending</h4>
@@ -671,13 +683,19 @@
             <div class="cta-center">
                 <button class="btn btn--primary btn--lg" onclick="switchToTab('wealth')">Try It With Your Numbers</button>
             </div>
+
+            <div style="text-align: center; margin-top: 24px;">
+                <p style="color: var(--color-text-secondary); margin-bottom: 12px;">Want to learn more about investing?</p>
+                <a href="guide.html" class="btn btn--outline">📖 Read the Full Investing Guide</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Australian Student Wealth Builder. Educational purposes only - not financial advice.</p>
+            <p>&copy; 2025 Australian Student Wealth Builder. Educational purposes only — not financial advice.</p>
+            <p style="margin-top: 8px;"><a href="guide.html" style="color: var(--color-primary);">Read the Investing Guide</a></p>
         </div>
     </footer>
 
