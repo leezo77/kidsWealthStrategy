@@ -2075,3 +2075,160 @@ input:checked + .toggle-slider:before {
 }
 
 .cta-center { text-align: center; margin-top: var(--space-32); }
+
+/* Guide Page Styles */
+.guide-nav {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-16) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.guide-content {
+  padding: var(--space-32) 0;
+}
+
+.guide-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  margin-bottom: var(--space-24);
+}
+
+.guide-section h2 {
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-8);
+}
+
+.guide-section h3 {
+  margin-top: var(--space-24);
+  margin-bottom: var(--space-12);
+  color: var(--color-text);
+}
+
+.guide-section h4 {
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-8);
+  color: var(--color-primary);
+}
+
+.guide-section ul,
+.guide-section ol {
+  margin: var(--space-16) 0;
+  padding-left: var(--space-24);
+}
+
+.guide-section li {
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+
+.guide-section a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.guide-section a:hover {
+  color: var(--color-primary-hover);
+}
+
+.disclaimer-banner {
+  background: var(--color-bg-4);
+  border-left: 4px solid var(--color-warning);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.disclaimer-banner p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+/* Risk Profile Cards */
+.risk-profile-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-20);
+  margin-top: var(--space-20);
+}
+
+.risk-profile-card {
+  background: var(--color-bg-1);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.risk-profile-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.risk-profile-card h5 {
+  margin-bottom: var(--space-12);
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-8);
+}
+
+.risk-profile-card .profile-desc {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.risk-profile-card ul {
+  margin: var(--space-12) 0;
+  padding-left: var(--space-20);
+}
+
+.risk-profile-card li {
+  margin-bottom: var(--space-8);
+  line-height: 1.5;
+}
+
+.risk-profile-card em {
+  display: block;
+  margin-top: var(--space-12);
+  padding: var(--space-8);
+  background: var(--color-bg-4);
+  border-left: 3px solid var(--color-warning);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* ETF Guidance Section */
+.etf-guidance-section {
+  background: var(--color-bg-1);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  text-align: center;
+}
+
+.etf-guidance-section h3 {
+  margin-bottom: var(--space-12);
+  color: var(--color-text);
+}
+
+.etf-guidance-section p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
