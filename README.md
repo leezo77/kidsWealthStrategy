@@ -14,6 +14,32 @@ Key objectives of the app include:
 
 The app is **client-side only** (no backend server needed). All data is stored locally on the user’s device, ensuring privacy and offline access. With a responsive design, it works on mobile or desktop, making it easy for students to use anywhere.
 
+## 🚀 Start Investing Guide
+
+**[`guide.html`](guide.html)** — A directive, mobile-friendly guide for Australian young adults to start investing with Betashares Direct.
+
+### What it is:
+A completely rewritten guide focused on **clear next steps** and **risk profiles with exact ETF picks**:
+- **5-step accordion:** Emergency fund → Open account → Fund → Pick risk profile → Automate
+- **Risk profile cards:** Conservative / Balanced / Growth with specific tickers and percentages
+- **"Buy this" checklists:** Dollar-for-dollar examples ($100/month split by %)
+- **Collapsed glossary and resources:** On demand, not front-and-center
+- Directive tone: "Here's what to buy" not endless theory
+
+### Risk profiles included:
+- **Conservative:** AAA 30% · QPON 20% · CRED 15% · WBND 15% · A200 10% · BGBL 10%
+- **Balanced:** A200 30% · BGBL 45% · CRED 15% · AAA 10% (or ultra-simple: A200 40% · BGBL 60%)
+- **Growth:** NDQ 35% · BGBL 25% · A200 15% · ASIA 15% · BEMG 10%
+
+All portfolios are Dad's coaching examples for education — not personal advice.
+
+### How to share:
+1. **GitHub Pages:** Share `https://leezo77.github.io/kidsWealthStrategy/guide.html`
+2. **Local file:** Open `guide.html` in any browser (works offline)
+3. **Download:** Send the HTML file directly
+
+The guide cross-links to the Student Wealth Builder calculator (`index.html`) for expense estimation.
+
 ## Onboarding Experience
 
 On first use, the app provides a **playful onboarding journey** to gently introduce financial concepts:
