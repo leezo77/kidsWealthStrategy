@@ -2151,3 +2151,84 @@ input:checked + .toggle-slider:before {
   font-size: var(--font-size-sm);
   line-height: 1.6;
 }
+
+/* Risk Profile Cards */
+.risk-profile-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-20);
+  margin-top: var(--space-20);
+}
+
+.risk-profile-card {
+  background: var(--color-bg-1);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.risk-profile-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.risk-profile-card h5 {
+  margin-bottom: var(--space-12);
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-8);
+}
+
+.risk-profile-card .profile-desc {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.risk-profile-card ul {
+  margin: var(--space-12) 0;
+  padding-left: var(--space-20);
+}
+
+.risk-profile-card li {
+  margin-bottom: var(--space-8);
+  line-height: 1.5;
+}
+
+.risk-profile-card em {
+  display: block;
+  margin-top: var(--space-12);
+  padding: var(--space-8);
+  background: var(--color-bg-4);
+  border-left: 3px solid var(--color-warning);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* ETF Guidance Section */
+.etf-guidance-section {
+  background: var(--color-bg-1);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  text-align: center;
+}
+
+.etf-guidance-section h3 {
+  margin-bottom: var(--space-12);
+  color: var(--color-text);
+}
+
+.etf-guidance-section p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
