@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Investing Guide for Young Adults | Betashares Direct</title>
+    <style>
+        :root {
+            --color-primary: #21808D;
+            --color-primary-hover: #1D7480;
+            --color-primary-light: #E6F4F6;
+            --color-secondary: #5D878F;
+            --color-accent: #1FB8CD;
+            --color-warning: #FFC185;
+            --color-error: #DB4545;
+            --color-success: #21808D;
+            --color-bg: #FCFCF9;
+            --color-surface: #FFFFF D;
+            --color-text: #134252;
+            --color-text-secondary: #626C71;
+            --color-border: rgba(94, 82, 64, 0.2);
+            --spacing-xs: 8px;
+            --spacing-sm: 12px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #1F2121;
+                --color-surface: #262828;
+                --color-text: #F5F5F5;
+                --color-text-secondary: rgba(167, 169, 169, 0.7);
+                --color-primary: #32B8C6;
+                --color-primary-hover: #2DA6B2;
+                --color-primary-light: rgba(50, 184, 198, 0.15);
+                --color-border: rgba(119, 124, 124, 0.3);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            font-size: 16px;
+        }
+
+        .disclaimer-banner {
+            background: linear-gradient(135deg, #DB4545 0%, #B4413C 100%);
+            color: white;
+            padding: var(--spacing-md) var(--spacing-lg);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .disclaimer-banner strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .disclaimer-banner p {
+            font-size: 0.95em;
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .nav-menu {
+            background: var(--color-surface);
+            border-bottom: 2px solid var(--color-border);
+            padding: var(--spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--color-text);
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .nav-link:hover {
+            background: var(--color-primary-light);
+            color: var(--color-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: var(--spacing-2xl) var(--spacing-md);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: var(--spacing-2xl);
+            scroll-margin-top: 100px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 3px solid var(--color-primary);
+            font-weight: 700;
+        }
+
+        .step-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .step-card {
+            background: var(--color-surface);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+
+        .step-number {
+            background: var(--color-primary);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .step-card h3 {
+            font-size: 1.4em;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text);
+        }
+
+        .step-card p {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: var(--color-primary-light);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--radius-md);
+        }
+
+        .info-box h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 133, 0.15);
+            border-left: 4px solid var(--color-warning);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--radius-md);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-table th {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-md);
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--color-primary-light);
+        }
+
+        .accordion {
+            margin: var(--spacing-lg) 0;
+        }
+
+        .accordion-item {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-sm);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: var(--spacing-md) var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .accordion-header:hover {
+            background: var(--color-primary-light);
+        }
+
+        .accordion-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+            color: var(--color-primary);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: var(--spacing-md) var(--spacing-lg);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .link-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            transition: all 0.2s;
+        }
+
+        .link-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .link-card a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .link-card a:hover {
+            text-decoration: underline;
+        }
+
+        .link-card p {
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        .checklist {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .checklist-item {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: start;
+            gap: var(--spacing-md);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox-icon {
+            min-width: 24px;
+            height: 24px;
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .bucket-visual {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .bucket-item {
+            background: var(--color-surface);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .bucket-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .bucket-icon {
+            font-size: 2.5em;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .bucket-item h4 {
+            color: var(--color-text);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1em;
+        }
+
+        .bucket-item p {
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        .percentage-badge {
+            background: var(--color-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: var(--spacing-xs);
+        }
+
+        .footer {
+            background: var(--color-surface);
+            border-top: 2px solid var(--color-border);
+            padding: var(--spacing-xl) var(--spacing-md);
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin: 0 var(--spacing-sm);
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            margin: var(--spacing-md) 0;
+            padding-left: var(--spacing-lg);
+        }
+
+        li {
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-text-secondary);
+        }
+
+        strong {
+            color: var(--color-text);
+        }
+
+        a {
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .step-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .comparison-table {
+                font-size: 0.9em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: var(--spacing-sm);
+            }
+        }
+
+        .highlight {
+            background: rgba(255, 193, 133, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner">
+        <strong>⚠️ IMPORTANT DISCLAIMER</strong>
+        <p>
+            This guide is <strong>general education only</strong> — not personal financial advice. 
+            Investing involves risk of loss. Fees and products change; always check the latest 
+            <strong>Betashares PDS and TMD</strong> before investing. For tax questions, 
+            speak with a <strong>registered tax agent</strong>. Past performance does not guarantee future results.
+        </p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <a href="#steps" class="nav-link">5-Step Process</a>
+            <a href="#emergency" class="nav-link">Emergency Fund</a>
+            <a href="#buckets" class="nav-link">Money Buckets</a>
+            <a href="#products" class="nav-link">What to Buy</a>
+            <a href="#betashares" class="nav-link">Betashares Paths</a>
+            <a href="#chess" class="nav-link">CHESS vs Custodial</a>
+            <a href="#glossary" class="nav-link">Glossary</a>
+            <a href="#links" class="nav-link">Links</a>
+            <a href="#checklist" class="nav-link">Checklist</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>🚀 Your Wealth Building Journey</h1>
+        <p>A practical guide for Australian young adults to start investing with Betashares Direct. 
+           Built on Dad's coaching framework: secure your base, then grow with simple ETFs.</p>
+    </div>
+
+    <!-- 5-Step Process -->
+    <div class="container">
+        <section id="steps" class="section">
+            <h2 class="section-title">The 5-Step Process</h2>
+            <p>Follow these steps in order. Don't skip ahead — each step builds on the last.</p>
+            
+            <div class="step-cards">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Build Your Emergency Fund</h3>
+                    <p>Before investing anything, save 3–6 months of living expenses in a high-interest savings account. 
+                       This protects you from debt when unexpected costs hit (laptop breaks, car repairs, sudden job loss).</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Open Betashares Direct</h3>
+                    <p>Create a <strong>Betashares Direct Individual account</strong> (you're an adult, not using the Kids account). 
+                       Quote your Tax File Number (TFN) to avoid extra withholding tax on earnings.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Fund Your Account</h3>
+                    <p>Set up recurring bank transfers to your Betashares Direct Wallet using the BSB and account number provided. 
+                       Osko often makes BSB transfers instant. PayID is not advertised on Betashares Direct — use BSB + account number for reliability.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Buy Core ETFs</h3>
+                    <p>Start with Australian and global index ETFs. Use Manual DIY mode (zero platform fee, zero brokerage) 
+                       while balances are small. Focus on <strong>ASX-listed ETFs</strong> to avoid foreign exchange fees on small amounts.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Automate & Leave Alone</h3>
+                    <p>Set up Auto-Invest or recurring deposits, then leave it alone. Review once a year. 
+                       Don't check daily — time in the market beats timing the market.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Fund -->
+        <section id="emergency" class="section">
+            <h2 class="section-title">Why an Emergency Fund?</h2>
+            
+            <div class="info-box">
+                <h3>🛟 Your Financial Safety Net</h3>
+                <p>An emergency fund is money set aside to cover unexpected expenses or loss of income. 
+                   It's your first priority before investing.</p>
+            </div>
+
+            <h3>What it protects you from:</h3>
+            <ul>
+                <li><strong>Unexpected expenses:</strong> Laptop dies, car repair, medical bill</li>
+                <li><strong>Income loss:</strong> Job ends, hours cut, client work dries up</li>
+                <li><strong>Forced bad decisions:</strong> Selling investments at a loss or taking on high-interest debt</li>
+            </ul>
+
+            <h3>How much to save:</h3>
+            <ul>
+                <li><strong>Minimum:</strong> $2,000–$3,000 to handle common emergencies</li>
+                <li><strong>Target:</strong> 3–6 months of fixed living expenses (rent, food, transport, bills)</li>
+                <li><strong>Where to keep it:</strong> High-interest savings account (e.g., UBank Save 4.60%* p.a., ING, Macquarie)</li>
+            </ul>
+
+            <p style="font-size: 0.9em; color: var(--color-text-secondary); margin-top: var(--spacing-md);">
+                *Rates change frequently. Check current rates before opening an account.
+            </p>
+
+            <div class="warning-box">
+                <strong>⚠️ Don't invest before you have an emergency fund.</strong>
+                <p>If an emergency hits and you have to sell investments to cover it, you might sell at a loss. 
+                   The market doesn't care about your timing.</p>
+            </div>
+        </section>
+
+        <!-- Money Buckets -->
+        <section id="buckets" class="section">
+            <h2 class="section-title">Money Buckets Strategy</h2>
+            
+            <p>Give every dollar a job by splitting your income into buckets. This is the framework from Dad's 
+               <a href="index.html">Student Wealth Builder app</a>.</p>
+
+            <div class="bucket-visual">
+                <div class="bucket-item">
+                    <div class="bucket-icon">🏠</div>
+                    <h4>Fixed Expenses</h4>
+                    <p>Rent, food, transport, bills — cover your essentials first</p>
+                    <div class="percentage-badge">First priority</div>
+                </div>
+
+                <div class="bucket-item">
+                    <div class="bucket-icon">🛟</div>
+                    <h4>Emergency Fund</h4>
+                    <p>Build to 3–6 months expenses, then maintain</p>
+                    <div class="percentage-badge">~20–30% of leftover</div>
+                </div>
+
+                <div class="bucket-item">
+                    <div class="bucket-icon">🎯</div>
+                    <h4>Big Goal</h4>
+                    <p>Car, trip, house deposit — optional but targeted</p>
+                    <div class="percentage-badge">Optional</div>
+                </div>
+
+                <div class="bucket-item">
+                    <div class="bucket-icon">📈</div>
+                    <h4>Core Investments</h4>
+                    <p>VAS/VGS or A200/BGBL for long-term growth</p>
+                    <div class="percentage-badge">~10% of leftover</div>
+                </div>
+
+                <div class="bucket-item">
+                    <div class="bucket-icon">🚀</div>
+                    <h4>Satellite</h4>
+                    <p>Small slice for higher-risk ideas (NDQ, BTC ETF)</p>
+                    <div class="percentage-badge">~3% of leftover</div>
+                </div>
+
+                <div class="bucket-item">
+                    <div class="bucket-icon">🎉</div>
+                    <h4>Flexible Spending</h4>
+                    <p>Fun, lifestyle, buffer — enjoy life now</p>
+                    <div class="percentage-badge">Rest</div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: var(--spacing-xl);">
+                <h3>💡 Example allocation (after fixed expenses):</h3>
+                <ul>
+                    <li>Emergency: 20–30% (until fully funded)</li>
+                    <li>Core investments: 10%</li>
+                    <li>Satellite: 3%</li>
+                    <li>Flexible: Whatever's left (~57–67%)</li>
+                </ul>
+                <p style="margin-top: var(--spacing-sm);">
+                    <strong>This is an example framework, not advice.</strong> Adjust based on your situation and goals.
+                </p>
+            </div>
+        </section>
+
+        <!-- What to Buy -->
+        <section id="products" class="section">
+            <h2 class="section-title">What to Buy (Educational Examples Only)</h2>
+            
+            <p>These are <strong>educational examples</strong>, not recommendations. Always read the PDS before investing.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>ETF Examples</th>
+                        <th>What it is</th>
+                        <th>Why consider it</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Australian Core</strong></td>
+                        <td>A200<br>VAS</td>
+                        <td>ASX 200 or ASX 300 index</td>
+                        <td>Broad Australian shares, franking credits, ASX-listed (no FX on small buys)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Global Core</strong></td>
+                        <td>BGBL<br>VGS</td>
+                        <td>Global developed markets (unhedged)</td>
+                        <td>Diversification beyond Australia, low MER, ASX-listed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Defensive</strong></td>
+                        <td>AAA<br>VAF</td>
+                        <td>Australian bonds</td>
+                        <td>Lower volatility, balance out shares risk (optional for most young investors)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Satellite Tech</strong></td>
+                        <td>NDQ</td>
+                        <td>NASDAQ-100 index</td>
+                        <td>Higher growth potential, higher risk, small allocation only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Satellite Crypto</strong></td>
+                        <td>QBTC</td>
+                        <td>Betashares Bitcoin ETF</td>
+                        <td>Very high risk, very small allocation if interested (1–3% max)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Satellite Crypto Economy</strong></td>
+                        <td>CRYP</td>
+                        <td>Crypto Innovators (blockchain/crypto companies, not Bitcoin price)</td>
+                        <td>High risk equity exposure to crypto ecosystem (optional)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dividend Tilt</strong></td>
+                        <td>VHY<br>ZYAU</td>
+                        <td>High-yield Australian shares</td>
+                        <td>Focus on dividend income, franking credits (optional strategy)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box" style="margin-top: var(--spacing-lg);">
+                <h3>🎯 Simple starting portfolio example:</h3>
+                <ul>
+                    <li><strong>50% A200</strong> (Australian core)</li>
+                    <li><strong>50% BGBL</strong> (Global core)</li>
+                </ul>
+                <p style="margin-top: var(--spacing-sm);">
+                    That's it. Keep it simple. Add satellite later if you want, but core is enough.
+                </p>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ No performance numbers here</strong>
+                <p>Past performance doesn't predict future results. We're not showing backtested returns because 
+                   they can be misleading. Focus on low fees (MER), broad diversification, and time in the market.</p>
+            </div>
+        </section>
+
+        <!-- Betashares Paths -->
+        <section id="betashares" class="section">
+            <h2 class="section-title">Betashares Direct: Which Path?</h2>
+            
+            <p>Betashares Direct offers three ways to buy ETFs. Choose based on your balance and preferences.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Cost</th>
+                        <th>Best for</th>
+                        <th>Limitations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Manual DIY</strong></td>
+                        <td>$0 platform fee<br>$0 brokerage</td>
+                        <td>Small balances, irregular investing, full control</td>
+                        <td>Manual purchases only; no auto-rebalancing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Auto-Invest</strong></td>
+                        <td>$0 platform fee<br>$0 brokerage</td>
+                        <td>Fixed $ amounts, up to 5 Betashares ETFs, set-and-forget</td>
+                        <td>Max 5 ETFs, fixed dollar amounts only (not percentages)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Custom Portfolio</strong></td>
+                        <td>~$3–4.50/month<br>(scales with balance)</td>
+                        <td>Percentage-based auto-rebalancing; can use at any balance</td>
+                        <td>Fee drag is significant under ~$10k; better at scale, but usable earlier if % split matters to you</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box" style="margin-top: var(--spacing-lg);">
+                <h3>💡 Practical default for small balances (education only):</h3>
+                <p><strong>Consider Manual DIY while balances are small (under ~$10k).</strong></p>
+                <ul>
+                    <li>Zero fees means every dollar goes to work</li>
+                    <li>You can still do regular monthly purchases manually — it takes 2 minutes</li>
+                    <li>Once you're at $10k+ and want auto-rebalancing, Custom Portfolio's fee becomes smaller relative to balance</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-xl);">When to use Auto-Invest:</h3>
+            <ul>
+                <li>You want automation but don't need exact percentage weights</li>
+                <li>You're only buying 2–5 Betashares ETFs</li>
+                <li>You prefer dollar amounts (e.g., $100/month into A200, $100/month into BGBL) instead of percentages</li>
+            </ul>
+
+            <h3 style="margin-top: var(--spacing-lg);">When to use Custom Portfolio:</h3>
+            <ul>
+                <li>You want percentage-based auto-rebalancing (e.g., maintain 50/50 A200/BGBL)</li>
+                <li>You value automation and accept the ~$3–4.50/month cost</li>
+                <li><strong>Note:</strong> Fee drag is significant under ~$10k (e.g., $4/month on $5k = ~1% annual drag), but you <em>can</em> use it earlier if % auto-split is worth the cost to you. This is education, not advice.</li>
+            </ul>
+
+            <p style="margin-top: var(--spacing-lg);">
+                <strong>More info:</strong><br>
+                <a href="https://www.betashares.com.au/direct/pricing" target="_blank">Betashares Direct Pricing</a><br>
+                <a href="https://www.betashares.com.au/direct/auto-invest" target="_blank">Auto-Invest Details</a><br>
+                <a href="https://www.betashares.com.au/direct/custom-portfolios" target="_blank">Custom Portfolios Explained</a>
+            </p>
+        </section>
+
+        <!-- CHESS -->
+        <section id="chess" class="section">
+            <h2 class="section-title">CHESS vs Custodial Holdings</h2>
+            
+            <div class="info-box">
+                <h3>📋 Quick summary:</h3>
+                <p><strong>Betashares Direct = Custodial</strong> (no personal HIN). This is normal and safe, 
+                   but you should understand what it means.</p>
+            </div>
+
+            <table class="comparison-table" style="margin-top: var(--spacing-lg);">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>CHESS-sponsored (HIN)</th>
+                        <th>Custodial (Betashares Direct)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Your name on registry?</strong></td>
+                        <td>✅ Yes, shares in your name</td>
+                        <td>❌ No, held by Betashares as custodian</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Personal HIN?</strong></td>
+                        <td>✅ Yes (starts with X)</td>
+                        <td>❌ No personal HIN</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Broker portability</strong></td>
+                        <td>✅ Easy to transfer between brokers</td>
+                        <td>⚠️ Sell & rebuy to move elsewhere</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Safety if broker fails</strong></td>
+                        <td>✅ Shares are yours, held by CHESS</td>
+                        <td>✅ Protected as client assets (segregated), but not on CHESS registry</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fractional shares</strong></td>
+                        <td>❌ Usually no</td>
+                        <td>✅ Yes (Betashares Direct supports this)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brokerage cost</strong></td>
+                        <td>Varies ($0–$20/trade typical)</td>
+                        <td>$0 on Betashares Direct</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: var(--spacing-xl);">So is custodial safe?</h3>
+            <p>Yes, for most people:</p>
+            <ul>
+                <li>Betashares holds your ETF units as custodian in a separate trust structure</li>
+                <li>If Betashares were to fail, your holdings are segregated client assets, not company assets</li>
+                <li>You can still see your holdings and receive dividends normally</li>
+            </ul>
+
+            <h3 style="margin-top: var(--spacing-lg);">When might you want CHESS later?</h3>
+            <ul>
+                <li>You want full control and portability across brokers</li>
+                <li>You're investing in individual shares (not just ETFs)</li>
+                <li>You have a large portfolio and want direct registry ownership</li>
+            </ul>
+
+            <div class="info-box" style="margin-top: var(--spacing-lg);">
+                <h3>💡 Other CHESS brokers (for later):</h3>
+                <p>If you want CHESS-sponsored holdings down the track, consider:</p>
+                <ul>
+                    <li><strong>Stake:</strong> <a href="https://hellostake.com/au" target="_blank">hellostake.com/au</a> — $3 brokerage, CHESS-sponsored</li>
+                    <li><strong>CMC Invest:</strong> <a href="https://www.cmcmarkets.com/en-au/stockbroking" target="_blank">cmcmarkets.com/en-au/stockbroking</a> — $0 brokerage up to $1k/day, CHESS</li>
+                </ul>
+                <p style="margin-top: var(--spacing-sm); font-size: 0.9em;">
+                    This is for education, not a recommendation. Check current fees and terms before switching.
+                </p>
+            </div>
+
+            <p style="margin-top: var(--spacing-lg);">
+                <strong>More info:</strong><br>
+                <a href="https://www.betashares.com.au/direct/faq" target="_blank">Betashares Direct FAQ</a><br>
+                <a href="https://www.betashares.com.au/education/chess-sponsored-vs-custodial-holding/" target="_blank">CHESS vs Custodial Explained (Betashares)</a><br>
+                <a href="https://moneysmart.gov.au/shares/keeping-track-of-your-shares" target="_blank">MoneySmart: Keeping Track of Your Shares</a>
+            </p>
+        </section>
+
+        <!-- Glossary -->
+        <section id="glossary" class="section">
+            <h2 class="section-title">Glossary (Click to Expand)</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>ETF</strong> (Exchange Traded Fund)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>A fund that holds a basket of assets (shares, bonds, etc.) and trades on the stock exchange like a regular share. 
+                               When you buy an ETF, you own a slice of everything inside it. Example: VGS holds ~1,400 global companies.</p>
+                            <p><strong>Common mix-up:</strong> People sometimes type "EFT" (electronic funds transfer). 
+                               The investment product is <span class="highlight">ETF</span>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Fractional Shares/Units</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>The ability to buy less than one full unit of an ETF or share. For example, if VGS costs $120/unit and you have $50, 
+                               fractional investing lets you buy 0.4167 units. Betashares Direct supports this; many CHESS brokers don't.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>MER</strong> (Management Expense Ratio)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>The annual fee charged by the fund manager, expressed as a percentage of your investment. 
+                               Example: A200 has a 0.04% p.a. MER — on $1,000 invested, that's $0.40/year. 
+                               Lower MER = more of your money stays invested.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Brokerage</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>The fee you pay each time you buy or sell shares/ETFs. Betashares Direct charges $0 brokerage. 
+                               Traditional brokers might charge $5–$20/trade. On small amounts, high brokerage eats into returns.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>DCA</strong> (Dollar-Cost Averaging)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Investing a fixed amount regularly (e.g., $200/month) regardless of market price. 
+                               You buy more units when prices are low, fewer when high. Smooths out volatility and removes emotion from timing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>DRP</strong> (Dividend Reinvestment Plan)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Automatically reinvests dividends to buy more units instead of paying cash. 
+                               Compounds growth but may trigger small taxable events. Check if your broker/platform supports it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>TFN</strong> (Tax File Number)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Your unique Australian tax identifier. Quote it when opening investment accounts to avoid extra 
+                               withholding tax (up to 47% on income if not quoted). Keep it private — never share publicly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Franking Credit</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>A tax credit for company tax already paid on dividends from Australian shares. 
+                               If you're in a low tax bracket, you may get a refund from franking credits. 
+                               Only applies to Australian shares (not international).</p>
+                            <p><strong>More info:</strong> 
+                               <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/shares-funds-and-trusts/investing-in-shares/refund-of-franking-credits-for-individuals" target="_blank">
+                               ATO: Franking Credits for Individuals</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Yield vs Total Return</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Yield:</strong> Income (dividends) as a % of your investment. Example: 4% yield on $1,000 = $40/year.</p>
+                            <p><strong>Total return:</strong> Yield + capital growth. An ETF might yield 3% but grow 7% in price = 10% total return. 
+                               Focus on total return, not just yield.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Hedged vs Unhedged</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>Unhedged (e.g., VGS):</strong> You're exposed to currency movements. If the AUD falls, your international holdings 
+                               are worth more in AUD (and vice versa).</p>
+                            <p><strong>Hedged (e.g., VGAD):</strong> Currency risk is hedged back to AUD. You only get the share price movement, 
+                               not currency swings. Hedging costs a small fee.</p>
+                            <p>Most young investors use unhedged for long-term diversification.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Auto-Invest (Betashares)</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>A Betashares Direct feature that automatically buys up to 5 Betashares ETFs on a schedule (weekly/fortnightly/monthly) 
+                               using fixed dollar amounts. Zero fees, zero brokerage. Example: $100 into A200 + $100 into BGBL every month.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Custom Portfolio (Betashares)</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>A Betashares Direct service that auto-rebalances your portfolio to maintain target percentages 
+                               (e.g., 50% A200, 50% BGBL). Costs ~$3–4.50/month depending on balance. 
+                               Only worth it for portfolios above ~$10k due to fee drag.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>CHESS (Clearing House Electronic Subregister System)</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Australia's electronic share settlement system. When you have CHESS-sponsored holdings, 
+                               your shares are registered in your name with a personal HIN (Holder Identification Number). 
+                               Betashares Direct is custodial, so no personal HIN.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>HIN</strong> (Holder Identification Number)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>A unique number (starts with X) that identifies you on the CHESS system when you own shares directly. 
+                               Betashares Direct users don't get a personal HIN because holdings are custodial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>Custodial</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>When a broker or platform holds investments on your behalf as custodian. 
+                               You own the assets, but they're registered in the custodian's name (for your benefit). 
+                               Betashares Direct is custodial. Your holdings are segregated and protected.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>ASX</strong> (Australian Securities Exchange)</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Australia's primary stock exchange where shares and ETFs are listed and traded. 
+                               "ASX-listed" means you can buy it on the Australian market in AUD without foreign exchange fees.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span><strong>BSB vs PayID</strong></span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><strong>BSB:</strong> Bank-State-Branch number (6 digits) used to identify a bank account. 
+                               Betashares provides a BSB + account number for your Wallet.</p>
+                            <p><strong>PayID:</strong> A simpler identifier (email/phone) for instant transfers. 
+                               PayID is not advertised on Betashares Direct — use BSB + account number.</p>
+                            <p><strong>Osko:</strong> The instant payment system that often makes BSB transfers instant if both banks support it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section id="links" class="section">
+            <h2 class="section-title">Official Links</h2>
+            
+            <h3>Betashares Direct</h3>
+            <div class="link-grid">
+                <div class="link-card">
+                    <a href="https://direct.betashares.com.au" target="_blank">Betashares Direct (Login/Signup)</a>
+                    <p>Main platform to open your account and start investing</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.betashares.com.au/direct/" target="_blank">Betashares Direct Info</a>
+                    <p>Overview of features and getting started</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.betashares.com.au/direct/faq" target="_blank">Betashares Direct FAQ</a>
+                    <p>Common questions answered</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.betashares.com.au/direct/pricing" target="_blank">Betashares Direct Pricing</a>
+                    <p>Fee structure for Manual DIY, Auto-Invest, and Custom Portfolio</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.betashares.com.au/direct/custom-portfolios" target="_blank">Custom Portfolios Explained</a>
+                    <p>How percentage-based auto-rebalancing works</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.betashares.com.au/direct/auto-invest" target="_blank">Auto-Invest Details</a>
+                    <p>How to set up automatic recurring investments</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.betashares.com.au/education/chess-sponsored-vs-custodial-holding/" target="_blank">CHESS vs Custodial (Betashares)</a>
+                    <p>Understanding the difference in holding structures</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-xl);">Government & Education</h3>
+            <div class="link-grid">
+                <div class="link-card">
+                    <a href="https://moneysmart.gov.au/managed-funds-and-etfs/exchange-traded-funds-etfs" target="_blank">MoneySmart: ETFs</a>
+                    <p>Official Australian government guide to ETFs</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://moneysmart.gov.au/shares/keeping-track-of-your-shares" target="_blank">MoneySmart: Keeping Track of Your Shares</a>
+                    <p>CHESS, HIN, and share registry basics</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/shares-funds-and-trusts/investing-in-shares/refund-of-franking-credits-for-individuals" target="_blank">ATO: Franking Credits</a>
+                    <p>How franking credits work for individual investors</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-xl);">Optional CHESS Brokers (For Later)</h3>
+            <div class="link-grid">
+                <div class="link-card">
+                    <a href="https://hellostake.com/au" target="_blank">Stake</a>
+                    <p>$3 brokerage, CHESS-sponsored, good for individual shares</p>
+                </div>
+                <div class="link-card">
+                    <a href="https://www.cmcmarkets.com/en-au/stockbroking" target="_blank">CMC Invest</a>
+                    <p>$0 brokerage up to $1k/day, CHESS-sponsored</p>
+                </div>
+            </div>
+
+            <p style="margin-top: var(--spacing-lg); color: var(--color-text-secondary); font-size: 0.95em;">
+                <strong>Note:</strong> These are educational links only. Check current fees, terms, and suitability before opening accounts.
+            </p>
+        </section>
+
+        <!-- Checklist -->
+        <section id="checklist" class="section">
+            <h2 class="section-title">Weekend Onboarding Checklist</h2>
+            
+            <p style="margin-bottom: var(--spacing-lg);">Work through this over a weekend. Take your time, read everything, ask Dad if you're stuck.</p>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Calculate your emergency fund target</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Add up 3–6 months of fixed expenses (rent, food, transport, bills). 
+                            Use the <a href="index.html">Student Wealth Builder app</a> if you need help estimating.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Open a high-interest savings account</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            UBank Save, ING, or Macquarie. Compare current rates. Set up for your emergency fund.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Save your emergency fund (before investing)</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Don't skip this. Get to at least $2k–$3k minimum before moving to investments.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Sign up for Betashares Direct (Individual account)</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Go to <a href="https://direct.betashares.com.au" target="_blank">direct.betashares.com.au</a>, 
+                            choose Individual (not Kids), provide ID and TFN.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Note your Wallet BSB and account number</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Betashares will give you a BSB + account number for deposits. Save it somewhere secure.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Read the PDS for your chosen ETFs</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Example: A200 PDS, BGBL PDS. Understand what you're buying, the fees, and the risks.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Set up a recurring bank transfer</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            From your bank to Betashares Wallet. Start small (e.g., $100–$200/month) and adjust later.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Make your first ETF purchase</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Use Manual DIY (zero fees). Buy your core ETFs (e.g., 50% A200, 50% BGBL). Celebrate! 🎉
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Set a calendar reminder for monthly review</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Check in once a month to buy more (if using Manual DIY). Don't obsess daily.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="checkbox-icon">□</div>
+                    <div>
+                        <strong>Tell Dad you're all set up</strong>
+                        <p style="margin: 0; color: var(--color-text-secondary);">
+                            Let him know you've started. Ask questions if anything's unclear. He's here to help.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Link to Calculator -->
+        <section class="section">
+            <div class="info-box">
+                <h3>💡 Need help with your budget and allocations?</h3>
+                <p>Use Dad's <a href="index.html"><strong>Student Wealth Builder calculator</strong></a> to estimate 
+                   your expenses and see the bucket allocations in action. It's the same strategy this guide is based on.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <p><strong>This guide is educational only — not personal financial advice.</strong></p>
+            <p>Always read product disclosure statements (PDS) and consider your own situation before investing. 
+               For tax advice, speak with a registered tax agent.</p>
+            <p style="margin-top: var(--spacing-md);">
+                Built with ❤️ by Dad for his adult kids<br>
+                <a href="https://github.com/leezo77/kidsWealthStrategy" target="_blank" class="footer-link">View on GitHub</a> |
+                <a href="index.html" class="footer-link">Wealth Builder Calculator</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                // Close other items
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Step card click to expand (visual feedback)
+        document.querySelectorAll('.step-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
