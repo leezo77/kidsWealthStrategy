@@ -14,39 +14,6 @@ Key objectives of the app include:
 
 The app is **client-side only** (no backend server needed). All data is stored locally on the user’s device, ensuring privacy and offline access. With a responsive design, it works on mobile or desktop, making it easy for students to use anywhere.
 
-## 📘 New: Kids Wealth Guide
-
-**[`guide.html`](guide.html)** — A comprehensive, shareable HTML guide for Australian young adults starting their investing journey.
-
-### What it is:
-A polished, mobile-friendly, self-contained HTML page that covers:
-- The 5-step process to start investing (emergency fund → Betashares Direct → buy ETFs)
-- Money buckets strategy from the Student Wealth Builder
-- What to buy (educational ETF examples: A200, VGS, BGBL, etc.)
-- Betashares Direct paths explained (Manual DIY vs Auto-Invest vs Custom Portfolio)
-- CHESS vs custodial holdings
-- Comprehensive glossary (ETF, MER, brokerage, DCA, franking credits, TFN, etc.)
-- Weekend onboarding checklist
-- All official links (Betashares, MoneySmart, ATO)
-
-### How to use it:
-1. **View locally:** Open `guide.html` in any browser — it works offline once downloaded.
-2. **Share the link:** If hosted on GitHub Pages, share `https://leezo77.github.io/kidsWealthStrategy/guide.html`
-3. **Download and send:** Download the HTML file and email/message it directly — it's self-contained.
-
-### Setting up GitHub Pages (optional):
-To share via a live link:
-1. Go to your repo Settings → Pages
-2. Choose `main` branch (or the branch with `guide.html`)
-3. Save and wait a few minutes
-4. Your guide will be live at: `https://leezo77.github.io/kidsWealthStrategy/guide.html`
-
-### Important notes:
-- The guide includes a prominent disclaimer banner (general education only, not financial advice)
-- All product examples are educational — not recommendations
-- Links are official sources only (Betashares, MoneySmart, ATO)
-- Designed for adults using Betashares Direct Individual accounts (not Kids accounts)
-
 ## Onboarding Experience
 
 On first use, the app provides a **playful onboarding journey** to gently introduce financial concepts:
