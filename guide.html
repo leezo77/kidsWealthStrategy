@@ -64,10 +64,18 @@
             color: white;
             padding: var(--spacing-md) var(--spacing-lg);
             text-align: center;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            right: 0;
+            z-index: 1001;
             box-shadow: var(--shadow-md);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .disclaimer-banner.visible {
+            transform: translateY(0);
         }
 
         .disclaimer-banner strong {
@@ -81,6 +89,60 @@
             max-width: 1200px;
             margin: 0 auto;
             line-height: 1.5;
+        }
+
+        .disclaimer-close {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .disclaimer-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .disclaimer-trigger {
+            background: rgba(219, 69, 69, 0.1);
+            border: 1px solid rgba(219, 69, 69, 0.3);
+            color: #DB4545;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .disclaimer-trigger:hover {
+            background: rgba(219, 69, 69, 0.15);
+            border-color: rgba(219, 69, 69, 0.5);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .disclaimer-trigger {
+                background: rgba(255, 84, 89, 0.15);
+                border-color: rgba(255, 84, 89, 0.3);
+                color: #FF5459;
+            }
+            .disclaimer-trigger:hover {
+                background: rgba(255, 84, 89, 0.25);
+                border-color: rgba(255, 84, 89, 0.5);
+            }
         }
 
         .nav-menu {
@@ -496,6 +558,16 @@
                 flex-direction: column;
             }
 
+            .disclaimer-trigger {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .disclaimer-banner p {
+                font-size: 0.9em;
+            }
+
             .comparison-table {
                 font-size: 0.9em;
             }
@@ -514,8 +586,9 @@
     </style>
 </head>
 <body>
-    <!-- Disclaimer Banner -->
-    <div class="disclaimer-banner">
+    <!-- Disclaimer Banner (collapsed by default) -->
+    <div class="disclaimer-banner" id="disclaimerBanner">
+        <button class="disclaimer-close" onclick="toggleDisclaimer()" aria-label="Close disclaimer">×</button>
         <strong>⚠️ IMPORTANT DISCLAIMER</strong>
         <p>
             This guide is <strong>general education only</strong> — not personal financial advice. 
@@ -528,6 +601,10 @@
     <!-- Navigation -->
     <nav class="nav-menu">
         <div class="nav-container">
+            <button class="disclaimer-trigger" onclick="toggleDisclaimer()">
+                <span>⚠️</span>
+                <span>Disclaimer</span>
+            </button>
             <a href="#steps" class="nav-link">5-Step Process</a>
             <a href="#emergency" class="nav-link">Emergency Fund</a>
             <a href="#buckets" class="nav-link">Money Buckets</a>
@@ -1377,6 +1454,29 @@
     </div>
 
     <script>
+        // Disclaimer toggle with localStorage
+        function toggleDisclaimer() {
+            const banner = document.getElementById('disclaimerBanner');
+            const isVisible = banner.classList.contains('visible');
+            
+            if (isVisible) {
+                banner.classList.remove('visible');
+                localStorage.setItem('disclaimerDismissed', 'true');
+            } else {
+                banner.classList.add('visible');
+                localStorage.removeItem('disclaimerDismissed');
+            }
+        }
+
+        // Check localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const dismissed = localStorage.getItem('disclaimerDismissed');
+            if (!dismissed) {
+                // Show disclaimer on first visit
+                document.getElementById('disclaimerBanner').classList.add('visible');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
