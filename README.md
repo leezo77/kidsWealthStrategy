@@ -14,38 +14,31 @@ Key objectives of the app include:
 
 The app is **client-side only** (no backend server needed). All data is stored locally on the user’s device, ensuring privacy and offline access. With a responsive design, it works on mobile or desktop, making it easy for students to use anywhere.
 
-## 📘 New: Kids Wealth Guide
+## 🚀 Start Investing Guide
 
-**[`guide.html`](guide.html)** — A comprehensive, shareable HTML guide for Australian young adults starting their investing journey.
+**[`guide.html`](guide.html)** — A directive, mobile-friendly guide for Australian young adults to start investing with Betashares Direct.
 
 ### What it is:
-A polished, mobile-friendly, self-contained HTML page that covers:
-- The 5-step process to start investing (emergency fund → Betashares Direct → buy ETFs)
-- Money buckets strategy from the Student Wealth Builder
-- What to buy (educational ETF examples: A200, VGS, BGBL, etc.)
-- Betashares Direct paths explained (Manual DIY vs Auto-Invest vs Custom Portfolio)
-- CHESS vs custodial holdings
-- Comprehensive glossary (ETF, MER, brokerage, DCA, franking credits, TFN, etc.)
-- Weekend onboarding checklist
-- All official links (Betashares, MoneySmart, ATO)
+A completely rewritten guide focused on **clear next steps** and **risk profiles with exact ETF picks**:
+- **5-step accordion:** Emergency fund → Open account → Fund → Pick risk profile → Automate
+- **Risk profile cards:** Conservative / Balanced / Growth with specific tickers and percentages
+- **"Buy this" checklists:** Dollar-for-dollar examples ($100/month split by %)
+- **Collapsed glossary and resources:** On demand, not front-and-center
+- Directive tone: "Here's what to buy" not endless theory
 
-### How to use it:
-1. **View locally:** Open `guide.html` in any browser — it works offline once downloaded.
-2. **Share the link:** If hosted on GitHub Pages, share `https://leezo77.github.io/kidsWealthStrategy/guide.html`
-3. **Download and send:** Download the HTML file and email/message it directly — it's self-contained.
+### Risk profiles included:
+- **Conservative:** AAA 30% · QPON 20% · CRED 15% · WBND 15% · A200 10% · BGBL 10%
+- **Balanced:** A200 30% · BGBL 45% · CRED 15% · AAA 10% (or ultra-simple: A200 40% · BGBL 60%)
+- **Growth:** NDQ 35% · BGBL 25% · A200 15% · ASIA 15% · BEMG 10%
 
-### Setting up GitHub Pages (optional):
-To share via a live link:
-1. Go to your repo Settings → Pages
-2. Choose `main` branch (or the branch with `guide.html`)
-3. Save and wait a few minutes
-4. Your guide will be live at: `https://leezo77.github.io/kidsWealthStrategy/guide.html`
+All portfolios are Dad's coaching examples for education — not personal advice.
 
-### Important notes:
-- The guide includes a prominent disclaimer banner (general education only, not financial advice)
-- All product examples are educational — not recommendations
-- Links are official sources only (Betashares, MoneySmart, ATO)
-- Designed for adults using Betashares Direct Individual accounts (not Kids accounts)
+### How to share:
+1. **GitHub Pages:** Share `https://leezo77.github.io/kidsWealthStrategy/guide.html`
+2. **Local file:** Open `guide.html` in any browser (works offline)
+3. **Download:** Send the HTML file directly
+
+The guide cross-links to the Student Wealth Builder calculator (`index.html`) for expense estimation.
 
 ## Onboarding Experience
 
